@@ -1,12 +1,12 @@
-<a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.demolab.com?font=Black+Ops+One&size=100&pause=1000&color=FF033E&center=true&width=1000&height=200&lines=SILENT-SOBX-MD" alt="Typing SVG" /></a>
+<a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.demolab.com?font=Black+Ops+One&size=100&pause=1000&color=FF033E&center=true&width=1000&height=200&lines=SHIRO-MD" alt="Typing SVG" /></a>
   </p>
 
-`© NEW REPOSITORY SILENT-SOBX-MD💛`
+`© NEW REPOSITORY SHIRO-MD💛`
 
 ---------
 
 ### <br>  ❖ SILENT-SOBX-MD ❖
-🔰 **`THE WORLD BEST WHATSAPP BOT CREATED BY SILENTLOVER 432`** 🔰
+🔰 **`THE WORLD BEST WHATSAPP BOT CREATED BY C0De_Zero`** 🔰
 
 ----------
 
