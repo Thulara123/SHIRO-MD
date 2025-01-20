@@ -1,7 +1,7 @@
 {
-  "name": "YourBot",
-  "description": "Javascript WhatsApp bot made by YourName",
-  "logo": "https://telegra.ph/file/ad25b2227fa2a1a01b707.jpg",
+  "name": "SHIRO-MD",
+  "description": "Javascript WhatsApp bot made by C0De_Zero",
+  "logo": "asset/SHIRO-MD.jpg",
   "keywords": ["bot"],
   "success_url": "/",
 
