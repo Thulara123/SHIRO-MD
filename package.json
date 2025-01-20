@@ -1,12 +1,12 @@
 {
-  "name": "yourbot",
+  "name": "SHIRO-MD",
   "version": "1.0.0",
-  "description": "A WhatsApp bot created using Node.js",
+  "description": "SHIRO-MD CREATE BY C0De_Zero",
   "main": "index.js",
   "scripts": {
-    "start": "pm2 start index.js --deep-monitoring --attach --name wabot",
-    "stop": "pm2 stop wabot",
-    "restart": "pm2 restart wabot"
+    "start": "pm2 start index.js --deep-monitoring --attach --name SHIRO-MD",
+    "stop": "pm2 stop SHIRO-MD",
+    "restart": "pm2 restart SHIRO-MD"
   },
   "dependencies": {
     "@whiskeysockets/baileys": "6.6.0",
