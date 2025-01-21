@@ -12,7 +12,7 @@ async(conn, mek, m,{from, quoted, body, isCmd, command, args, q, isGroup, sender
 try{
 if(!q) return reply("Please give me a url or titile")
 const search = await yts(q)
-const data = search.video[0];
+const data = search.video[1];
 const url = data.url
 
 let desc= `
