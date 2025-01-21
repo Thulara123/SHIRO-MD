@@ -16,7 +16,7 @@ download: '',
 group: '',
 owner: '',
 search: ''
-}:
+};
 
 for (let i = 0; i < commands.length; i++) {
 if (commands[i].pattern && !commands[i].dontAddCommandList) {
