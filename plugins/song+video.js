@@ -9,7 +9,7 @@ cmd({
     filename: __filename
 }, async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply }) => {
     try {
-[21/01, 12:10] ChatGPT: if (!q) return reply("Please provide a URL or title.");
+if (!q) return reply("Please provide a URL or title.");
         
         const search = await yts(q);
         const data = search.video[0];
@@ -56,7 +56,8 @@ cmd({
     desc: "download video",
     category: "download",
     filename: __filename
-[21/01, 12:10] ChatGPT: , async (conn, mek, m,  from, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply ) => 
+},
+async (conn, mek, m,  from, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply ) => 
     try 
         if (!q) return reply("Please provide a URL or title.");
         
@@ -90,7 +91,7 @@ MADE BY SHIRO-MD
         await conn.sendMessage(from, { video: { url: downloadUrl }, mimetype: "video/mp4" }, { quoted: mek });
 
         // Send document (MP4)
-[21/01, 12:10] ChatGPT: await conn.sendMessage(from, { document: { url: downloadUrl }, mimetype: "video/mp4", fileName: `data.title.mp4`, caption: "SHIRO-MD" ,  quoted: mek );
+await conn.sendMessage(from, { document: { url: downloadUrl }, mimetype: "video/mp4", fileName: `data.title.mp4`, caption: "SHIRO-MD" ,  quoted: mek );
 
      catch (e) 
         console.log(e);
