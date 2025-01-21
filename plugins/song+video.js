@@ -12,7 +12,7 @@ async(conn, mek, m,{from, quoted, body, isCmd, command, args, q, isGroup, sender
 try{
 if(!q) return reply("Please give me a url or titile")
 const search = await yts(q)
-const data = search.video[1];
+const data = search.video[0];
 const url = data.url
 
 let desc= `
@@ -36,6 +36,53 @@ let downloadUrl = down.dl_url
 
 //send audio massage
 await conn.sendMessage(from,{audio: {url:downloadUrl},mimetype:"audio/mpeg"},{quoted:mek})
+await conn.sendMessage(from,{document: {url:downloadUrl},mimetype:"audio/mpeg",fileName:data.title + "mp3",caption:"SHIRO-MD"},{quoted:mek})
+
+  
+}catch(e){
+  console.log(e)
+  reply(`${e}`)
+}
+})
+
+
+//*********video-dl********
+
+cmd({
+    pattern: "video",
+    desc: "download ideo",
+    category: "download",
+    filename: __filename
+},
+async(conn, mek, m,{from, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply}) => {
+try{
+if(!q) return reply("Please give me a url or titile")
+const search = await yts(q)
+const data = search.video[0];
+const url = data.url
+
+let desc= `
+*SHIRO-MD VIDEO DOWNLOADER*
+  
+titile: ${data.title}
+description: ${data.description}
+time: ${data.timestamp}
+ago: ${data.ago}
+views: ${data.views}
+  
+MADE BY SHIRO-MD
+`
+
+await conn.sendMessage(from,{image:{url: data.thumnail},caption:desc},{quoted:mek});
+
+//download audio
+
+let down = await fg.ytv(url)
+let downloadUrl = down.dl_url
+
+//send ideo massage
+await conn.sendMessage(from,{video: {url:downloadUrl},mimetype:"ideo/mp4"},{quoted:mek})
+await conn.sendMessage(from,{document: {url:downloadUrl},mimetype:"video/mp4",fileName:data.title + "mp4",caption:"SHIRO-MD"},{quoted:mek})
 
   
 }catch(e){
