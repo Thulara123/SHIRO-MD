@@ -1,4 +1,4 @@
-const cmd = require('../command');
+const { cmd, commands } = require('../command');
 const fg = require('api-dylux');
 const yts = require('yt-search');
 
@@ -7,91 +7,93 @@ cmd({
     desc: "download songs",
     category: "download",
     filename: __filename
-},
-async(conn, mek, m, {from, quoted, body, isCmd, command, args, q}) => {
+}, async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply }) => {
     try {
-        if (!q) return reply("Please give me a url or title");
-
-        const search = await yts(q);
-        if (!search.video || search.video.length === 0) {
-            return reply("No results found. Please try a different query.");
-        }
+[21/01, 12:10] ChatGPT: if (!q) return reply("Please provide a URL or title.");
         
+        const search = await yts(q);
         const data = search.video[0];
         const url = data.url;
 
-        let desc= `
-        *SHIRO-MD SONG DOWNLOADER*
-          
-        title: ${data.title}
-        description: ${data.description}
-        time: ${data.timestamp}
-        ago: ${data.ago}
-        views: ${data.views}
-          
-        MADE BY SHIRO-MD
-        `;
+        let desc = `
+*SHIRO-MD SONG DOWNLOADER*
+  
+Title: data.title
+Description:{data.description}
+Time: data.timestamp
+Ago:{data.ago}
+Views: data.views
+  
+MADE BY SHIRO-MD
+`;
 
-        await conn.sendMessage(from, {image: {url: data.thumbnail}, caption: desc}, {quoted: mek});
+        // Send video thumbnail and details
+        await conn.sendMessage(from,  image:  url: data.thumbnail , caption: desc ,  quoted: mek );
 
-        // Download audio
+        // Download the song
         let down = await fg.yta(url);
+        if (!down || !down.dl_url) 
+            return reply("Sorry, I couldn't download the song.");
+        
         let downloadUrl = down.dl_url;
 
         // Send audio message
-        await conn.sendMessage(from, {audio: {url: downloadUrl}, mimetype: "audio/mpeg"}, {quoted: mek});
-        await conn.sendMessage(from, {document: {url: downloadUrl}, mimetype: "audio/mpeg", fileName: data.title + ".mp3", caption: "SHIRO-MD"}, {quoted: mek});
-        
+        await conn.sendMessage(from,  audio:  url: downloadUrl , mimetype: "audio/mpeg" ,  quoted: mek );
+
+        // Send document (MP3)
+        await conn.sendMessage(from,  document:  url: downloadUrl , mimetype: "audio/mpeg", fileName: `{data.title}.mp3`, caption: "SHIRO-MD" }, { quoted: mek });
+
     } catch (e) {
         console.log(e);
-        reply(`An error occurred: ${e.message}`);
+        reply(`Error: ${e.message || e}`);
     }
 });
 
-//*********video-dl********
+//***** video-dl ****
 
 cmd({
     pattern: "video",
     desc: "download video",
     category: "download",
     filename: __filename
-},
-async(conn, mek, m, {from, quoted, body, isCmd, command, args, q}) => {
-    try {
-        if (!q) return reply("Please give me a url or title");
-
-        const search = await yts(q);
-        if (!search.video || search.video.length === 0) {
-            return reply("No results found. Please try a different query.");
-        }
+[21/01, 12:10] ChatGPT: , async (conn, mek, m,  from, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply ) => 
+    try 
+        if (!q) return reply("Please provide a URL or title.");
         
+        const search = await yts(q);
         const data = search.video[0];
         const url = data.url;
 
-        let desc= `
-        *SHIRO-MD VIDEO DOWNLOADER*
-          
-        title: ${data.title}
-        description: ${data.description}
-        time: ${data.timestamp}
-        ago: ${data.ago}
-        views: ${data.views}
-          
-        MADE BY SHIRO-MD
-        `;
+        let desc = `
+*SHIRO-MD VIDEO DOWNLOADER*
+  
+Title:{data.title}
+Description: data.description
+Time:{data.timestamp}
+Ago: data.ago
+Views:{data.views}
+  
+MADE BY SHIRO-MD
+`;
 
-        await conn.sendMessage(from, {image: {url: data.thumbnail}, caption: desc}, {quoted: mek});
+        // Send video thumbnail and details
+        await conn.sendMessage(from, { image: { url: data.thumbnail }, caption: desc }, { quoted: mek });
 
-        // Download video
+        // Download the video
         let down = await fg.ytv(url);
+        if (!down || !down.dl_url) {
+            return reply("Sorry, I couldn't download the video.");
+        }
         let downloadUrl = down.dl_url;
 
         // Send video message
-        await conn.sendMessage(from, {video: {url: downloadUrl}, mimetype: "video/mp4"}, {quoted: mek});
-        await conn.sendMessage(from, {document: {url: downloadUrl}, mimetype: "video/mp4", fileName: data.title + ".mp4", caption: "SHIRO-MD"}, {quoted: mek});
-        
-    } catch (e) {
+        await conn.sendMessage(from, { video: { url: downloadUrl }, mimetype: "video/mp4" }, { quoted: mek });
+
+        // Send document (MP4)
+[21/01, 12:10] ChatGPT: await conn.sendMessage(from, { document: { url: downloadUrl }, mimetype: "video/mp4", fileName: `data.title.mp4`, caption: "SHIRO-MD" ,  quoted: mek );
+
+     catch (e) 
         console.log(e);
-        reply(`An error occurred: ${e.message}`);
+        reply(`Error:{e.message || e}`);
     }
 });
