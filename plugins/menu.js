@@ -50,6 +50,6 @@ SHIRO-MD`
 await conn.sendMessage(from,{text:madeMenu},{quoted:mek})
   
 }catch(e){
-console.log(e):
+console.log(e);
 reply(`${e}`)
 }
