@@ -48,7 +48,7 @@ ${menu.search}
 
 SHIRO-MD`
 
-await conn.sendMessage(from,{image:{url:"https://github.com/Thulara123/SHIRO-MD/blob/main/asset/SHIRO-MD.jpg"},caption:madeMenu},{quoted:mek})
+await conn.sendMessage(from,{image:{url:"asset/SHIRO-MD.jpg"},caption:madeMenu},{quoted:mek})
   
 }catch(e){
 console.log(e);
