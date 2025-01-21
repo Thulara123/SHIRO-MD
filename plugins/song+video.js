@@ -13,28 +13,29 @@ try{
 if(!q) return reply("Please give me a url or titile")
 const search = await yts(q)
 const data = search.video[0]:
-  const url = data.url
+const url = data.url
 
-  let desc= `
-  *SHIRO-MD SONG DOWNLOADER*
+let desc= `
+*SHIRO-MD SONG DOWNLOADER*
   
-  titile : ${data.title}
-  description : ${data.description}
-  time : ${data.timestamp}
-  ago : ${data.ago}
-  views : ${data.views}
+titile : ${data.title}
+description : ${data.description}
+time : ${data.timestamp}
+ago : ${data.ago}
+views : ${data.views}
   
-  MADE BY SHIRO-MD`
+MADE BY SHIRO-MD
+`
 
-await conn.sendMessage(form,{image:{url: data.thumnail},caption:desc},{quoted:mek});
+await conn.sendMessage(from,{image:{url: data.thumnail},caption:desc},{quoted:mek});
 
 //download audio
 
 let down = await fg.yta(url)
-let downloadUrl - down.dl_url
+let downloadUrl = down.dl_url
 
 //send audio massage
-await conn.sendMessage(form,{audio: {url:downloadUrl},mimetype:"audio/mpeg"},{quored:mek})
+await conn.sendMessage(from,{audio: {url:downloadUrl},mimetype:"audio/mpeg"},{quoted:mek})
 
   
 }catch(e){
