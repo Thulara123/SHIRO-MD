@@ -12,17 +12,17 @@ async(conn, mek, m,{from, quoted, body, isCmd, command, args, q, isGroup, sender
 try{
 if(!q) return reply("Please give me a url or titile")
 const search = await yts(q)
-const data = search.video[0]:
+const data = search.video[0];
 const url = data.url
 
 let desc= `
 *SHIRO-MD SONG DOWNLOADER*
   
-titile : ${data.title}
-description : ${data.description}
-time : ${data.timestamp}
-ago : ${data.ago}
-views : ${data.views}
+titile: ${data.title}
+description: ${data.description}
+time: ${data.timestamp}
+ago: ${data.ago}
+views: ${data.views}
   
 MADE BY SHIRO-MD
 `
