@@ -25,6 +25,7 @@ menu[commands[i].category] += `.${commands[i].pattern}\n`;
 }
 
 let madeMenu =`*Hello ${pushname}*
+
 > *DOWNLOAD COMMANDS*
 
 ${menu.download}
@@ -47,7 +48,7 @@ ${menu.search}
 
 SHIRO-MD`
 
-await conn.sendMessage(from,{text:madeMenu},{quoted:mek})
+await conn.sendMessage(from,{img:{url:"asset/SHIRO-MD.jpg"},caption:madeMenu},{quoted:mek})
   
 }catch(e){
 console.log(e);
