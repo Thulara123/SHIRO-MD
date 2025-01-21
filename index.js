@@ -136,7 +136,7 @@ conn.sendFileUrl = async (jid, url, caption, quoted, options = {}) => {
 //============================================================================ 
 if(!isOwner && config.MODE === "privet") return
 if(!isOwner && isGroup && cinfig.MODE === "inbox") return
-if(!isOwner && !isGroup && config.MODE == "groups")
+if(!isOwner && !isGroup && config.MODE == "groups") return
 //****************************************************************************
 
 const events = require('./command')
