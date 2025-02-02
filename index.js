@@ -878,7 +878,7 @@ editedMessage: {
 app.get("/", (req, res) => {
 res.send("📟 SHIRO-MD Working successfully!");
 });
-app.listen(port, () => console.log(`Vajira-Md Server listening on port http://localhost:${port}`));
+app.listen(port, () => console.log(`SHIRO-Md Server listening on port http://localhost:${port}`));
 setTimeout(() => {
 connectToWA()
 }, 3000);
