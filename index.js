@@ -69,9 +69,9 @@ require("./plugins/" + plugin);
 console.log('Plugins installed successful 鉁�')
 console.log('Bot connected to whatsapp 鉁�')
 
-let up = `Wa-BOT connected successful 鉁匼n\nPREFIX: ${prefix}`;
+let up = `SHIRO-MD connected successful 鉁匼n\nPREFIX: ${prefix}`;
 
-conn.sendMessage(ownerNumber + "@s.whatsapp.net", { image: { url: `https://telegra.ph/file/900435c6d3157c98c3c88.jpg` }, caption: up })
+conn.sendMessage(ownerNumber + "@s.whatsapp.net", { image: { url: `asset/SHIRO-MD.jpg` }, caption: up })
 
 }
 })
