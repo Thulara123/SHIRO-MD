@@ -104,14 +104,4 @@ jobs:
 
 -----------
 
-
-
-
-<a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.demolab.com?font=Black+Ops+One&size=50&pause=1000&color=000000&center=true&width=910&height=100&lines=SILENT-SOBX-MD;+THE+WORLD+BEST+WHATSAPP+BOT;+CREATED+BY+SILENTLOVER+432🖤;KEEP+USING+SILENT-SOBX-MD" alt="Typing SVG" /></a>
-  </p>
- 
-
-
------------
-
 ***⚠️THANKS FOR USING SILENT-SOBX-MD WHATSAPP BOT IF U HAVE ANY PROBLEM YOU CAN CONTECT ME NOTE SILENT-SOBX-MD A ANTIBAN WHATSAPP BOT BUT IF YOUR WHATSAPP ACCOUNT BANNED THEN I'M NO RESPONSE ABLE THANKYOU BY SILENTLOVER432 KING OF WHATSAPP♥️☣️🥂***
