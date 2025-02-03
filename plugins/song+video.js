@@ -20,11 +20,15 @@ const url = deta.url
 let desc= `
  🎶 *SHIRO-MD*   𝗔𝗨𝗗𝗜𝗢-𝗗𝗢𝗪𝗡𝗟𝗢𝗔𝗗𝗘𝗥🎶
  __________
-| ℹ️ title : ${deta.title}
-| 📋 description : ${deta.description}
-| 🕘 time : ${deta.timestamp}
-| 📌 ago : ${deta.ago}
-| 📉 views : ${deta.views}
+| ℹ️ Title : ${deta.title}
+
+| 📋 Description : ${deta.description}
+
+| 🕘 Time : ${deta.timestamp}
+
+| 📌 Ago : ${deta.ago}
+
+| 📉 Views : ${deta.views}
 |__________
 
 > ©SHIRO-MD
@@ -70,11 +74,15 @@ const url = deta.url
 let desc= `
 📽️ *SHIRO-MD*   𝗩𝗜𝗗𝗘𝗢-𝗗𝗢𝗪𝗡𝗟𝗢𝗔𝗗𝗘𝗥📽️
  __________
-|ℹ️ title : ${deta.title}
-| 📋 description : ${deta.description}
-| 🕘 time : ${deta.timestamp}
-| 📌 ago : ${deta.ago}
-| 📉 views : ${deta.views}
+| ℹ️ Title : ${deta.title}
+
+| 📋 Description : ${deta.description}
+
+| 🕘 Time : ${deta.timestamp}
+
+| 📌 Ago : ${deta.ago}
+
+| 📉 Views : ${deta.views}
 |__________
 
 > ©SHIRO-MD
