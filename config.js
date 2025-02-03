@@ -10,4 +10,5 @@ ALIVE_IMG : process.env.ALIVE_IMG || "asset/SHIRO-MD.jpg",
 ALIVE_MSG : process.env.ALIVE_MSG || "Hello,I am SHIRO-MD. I am alive now !!!",
 AUTO_READ_STATUS : process.env.AUTO_READ_STATUS || "true",
 MODE: process.env.MODE || "privet",
+GITHUB _AUTH_TOKEN : process.env.GITHUB_AUTH_TOKEN || "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"
 };
