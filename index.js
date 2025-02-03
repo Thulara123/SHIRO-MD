@@ -39,7 +39,7 @@ const port = process.env.PORT || 8000;
 //=============================================
 
 async function connectToWA() {
-console.log("Connecting wa bot.....!");
+console.log("Connecting wa bot.....!🔄");
 const { state, saveCreds } = await useMultiFileAuthState(__dirname + '/auth_info_baileys/')
 var { version } = await fetchLatestBaileysVersion()
 
@@ -66,8 +66,8 @@ if (path.extname(plugin).toLowerCase() == ".js") {
 require("./plugins/" + plugin);
 }
 });
-console.log('Plugins installed successful 鉁�')
-console.log('Bot connected to whatsapp 鉁�')
+console.log('Plugins installed successful ✅')
+console.log('Bot connected to whatsapp ✅')
 
 let up = `SHIRO-MD connected successful ✅`;
 
