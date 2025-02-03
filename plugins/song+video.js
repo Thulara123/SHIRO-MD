@@ -77,7 +77,7 @@ await conn.sendMessage(from,{image:{url: data.thumnail},caption:desc},{quoted:me
 
 //download video
 
-let down = await fg.ytv{url}
+let down = await fg.ytv(url);
 let downloadUrl = down.dl_url
 
 //send video massage
