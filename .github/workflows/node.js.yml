@@ -30,5 +30,5 @@ jobs:
 
     - name: Set WhatsApp API key
       env:
-        WHATSAPP_API_KEY:{{ secret.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 }} 
+        WHATSAPP_API_KEY:{{ secret.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 }} 
       run: npm start
