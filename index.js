@@ -29,7 +29,7 @@ const filer = File.fromURL(`https://mega.nz/file/${sessdata}`)
 filer.download((err, data) => {
 if(err) throw err
 fs.writeFile(__dirname + '/auth_info_baileys/creds.json', data, () => {
-console.log("Session downloaded 鉁�")
+console.log("Session downloaded 🧬")
 })})}
 
 const express = require("express");
@@ -39,7 +39,7 @@ const port = process.env.PORT || 8000;
 //=============================================
 
 async function connectToWA() {
-console.log("Connecting wa bot 馃К...");
+console.log("Connecting wa bot.....!");
 const { state, saveCreds } = await useMultiFileAuthState(__dirname + '/auth_info_baileys/')
 var { version } = await fetchLatestBaileysVersion()
 
@@ -59,7 +59,7 @@ if (lastDisconnect.error.output.statusCode !== DisconnectReason.loggedOut) {
 connectToWA()
 }
 } else if (connection === 'open') {
-console.log('馃樇 Installing... ')
+console.log('Installing...!🔄 ')
 const path = require('path');
 fs.readdirSync("./plugins/").forEach((plugin) => {
 if (path.extname(plugin).toLowerCase() == ".js") {
@@ -69,7 +69,7 @@ require("./plugins/" + plugin);
 console.log('Plugins installed successful 鉁�')
 console.log('Bot connected to whatsapp 鉁�')
 
-let up = `SHIRO-MD connected successful 鉁匼n\nPREFIX: ${prefix}`;
+let up = `SHIRO-MD connected successful ✅n\nPREFIX: ${prefix}`;
 
 conn.sendMessage(ownerNumber + "@s.whatsapp.net", { image: { url: `asset/SHIRO-MD.jpg` }, caption: up })
 
@@ -170,7 +170,7 @@ command.function(conn, mek, m,{from, l, quoted, body, isCmd, command, args, q, i
 })
 }
 app.get("/", (req, res) => {
-res.send("hey, bot started鉁�");
+res.send("hey, bot started successful✅");
 });
 app.listen(port, () => console.log(`Server listening on port http://localhost:${port}`));
 setTimeout(() => {
