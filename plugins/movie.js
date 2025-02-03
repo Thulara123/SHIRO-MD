@@ -1,5 +1,6 @@
 const axios = require('axios');
 const { cmd } = require('../command');
+const = require('../config')
 
 cmd({
     pattern: "movie",
