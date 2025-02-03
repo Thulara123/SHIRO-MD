@@ -52,36 +52,18 @@ src="https://cardivo.vercel.app/api?name=SHIRO-MD-V1&description=🥂❤️🔐T
 ![stars](https://img.shields.io/github/stars/Thulara123/SHIRO-MD?style=social)
 
 
-[![FORK SILENT-SOBX-MD](https://img.shields.io/badge/FORK%20-SHIRO%20-%20MD-white)](https://github.com/Thulara123/SHIRO-MD/fork)
+
 
 `⚛⚛⚛⚛⚛⚛⚛⚛⚛⚛⚛⚛⚛⚛⚛⚛⚛⚛⚛⚛⚛⚛⚛⚛⚛⚛⚛`
 
 ---------------
 
 </a>
-</p>
 
------------------
-
-🥂 `THIS BOT IS CREATED TO DOWNLOAD'S AND FIND VARIOUS TYPES THINGS QUICKLY **EXAMPLE** LOGO, PHOTO, STICKERS, VIDEOS, MOVIES, ADULT, AND MANY MORE FEATURES BY USING THIS BOT™ THIS BOT IS CREATED TO USING` 🥂 **[Baileys](https://github.com/WhiskeySockets/Baileys)**
-
-------------------
 
 `⚛⚛⚛⚛⚛⚛⚛⚛⚛⚛⚛⚛⚛⚛⚛⚛⚛⚛⚛⚛⚛⚛⚛⚛⚛⚛⚛`
 
------------------
 
-### <br> ❖ FOR SUPPORT ❖
-
-**`➩ HII DEARS FRIENDS IF YOU WANT ANY HELP SO YOU CAN CONTACT↘︎ WITH ME WIA WHATSAPP ITS ME SILENT✠LOVER⁴³²࿐➺`**
-
--------
-
-<p align="center">
-  <a href="https://wa.me/+94741688630?text=*code_zero+SHIRO-MD+ɪ+ɴᴇᴇᴅ+ʜᴇʟᴘ.+ɪ+ᴍᴇssᴀɢᴇᴅ+ʏᴏᴜ+ғʀᴏᴍ+SHIRO_MD+ʀᴇᴘᴏ..⁴³²*" target="_blank">
-    <img alt="whatsapp" src="https://img.shields.io/badge/ Whatsapp -25D366?style=for-the-badge&logo=whatsapp&logoColor=white" />
-
---------------
 
 ### <br>   ❖ DEPLOY_WORKFLOWS ❖
 ```
