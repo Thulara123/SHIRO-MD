@@ -41,7 +41,7 @@ Views:{date.views}
 
     } catch (e) {
         console.log(e);
-        reply(${e});
+        reply(`{e}`);
     }
 });
 
@@ -85,6 +85,6 @@ Views: date.views
 
      catch (e) 
         console.log(e);
-        reply({e});
+        reply(`{e}`);
     }
 });
