@@ -69,7 +69,7 @@ require("./plugins/" + plugin);
 console.log('Plugins installed successful 鉁�')
 console.log('Bot connected to whatsapp 鉁�')
 
-let up = `SHIRO-MD connected successful ✅n\nPREFIX: ${prefix}`;
+let up = `SHIRO-MD connected successful ✅`;
 
 conn.sendMessage(ownerNumber + "@s.whatsapp.net", { image: { url: `asset/SHIRO-MD.jpg` }, caption: up })
 
