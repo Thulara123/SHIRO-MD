@@ -29,7 +29,7 @@ await conn.sendMessage(from,{image:{url: data.thumnail},caption:desc},{quoted:me
 
 //download audio
 
-let down = await fg.yta{url}
+let down = await fg.yta(url);
 let downloadUrl = down.dl_url
 
 //send audio massage
