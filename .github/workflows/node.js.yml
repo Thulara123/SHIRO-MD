@@ -10,7 +10,6 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     strategy:
@@ -24,10 +23,12 @@ jobs:
     - name: Set up Node.js
       uses: actions/setup-node@v3
       with:
-        node-version: ${{ matrix.node-version }}
+        node-version: matrix.node-version 
 
     - name: Install dependencies
       run: npm install
 
-    - name: Start application
+    - name: Set WhatsApp API key
+      env:
+        WHATSAPP_API_KEY:{{ secret.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 }} 
       run: npm start
