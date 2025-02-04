@@ -1,14 +1,8 @@
-/* 
-Thenux-AI 
-   Give credit.*/
-
-
-
 const { cmd } = require('../command');
 const axios = require('axios');
 
 cmd({
-    pattern: "tt2",
+    pattern: "tt",
     alias: ["tiktokdl"],
     react: "🎬",
     desc: "Download TikTok video using the provided URL",
@@ -33,7 +27,7 @@ cmd({
 
             // Prepare the message with video details and options
             const message = `
-🎬 *乂 THENU-MD TIKTOK DOWNLOADER ◉◉►*
+🎬 *乂 SHIRO-MD TIKTOK DOWNLOADER ◉◉►*
 
 ┏━━━━━━━━━━━━━━━━━━━━━━━━━━┓
 1. *Title:* ${data.title}\n
@@ -58,8 +52,8 @@ cmd({
 
 Reply with the number of the option you want to download.
 
-> ©ᴡʜᴀᴛꜱᴀᴘᴘ ʙᴏᴛ ʙʏ Thenu-MD (WOLF-MD)
-> *©ᴘᴏᴡᴇʀᴇᴅ ʙʏ Thenux AI*`;
+> ©ᴡʜᴀᴛꜱᴀᴘᴘ ʙᴏᴛ ʙʏ SHIRO-MD
+> *©ᴘᴏᴡᴇʀᴇᴅ ʙʏ {C0De_Zero};*`;
 
             // Send the message and save the message ID
             const sentMsg = await conn.sendMessage(from, { image: { url: data.thumbnail }, caption: message }, { quoted: mek });
@@ -91,7 +85,7 @@ Reply with the number of the option you want to download.
                             // Handle option 1 (No Watermark Video)
                             await conn.sendMessage(
                                 from,
-                                { video: { url: data.nowm }, caption: "Here's your TikTok video without watermark.\n> 👾 THENUX  |   AI ジ" },
+                                { video: { url: data.nowm }, caption: "Here's your TikTok video without watermark.\n> 👾 SHIRO-MD" },
                                 { quoted: mek }
                             );
                             break;
@@ -99,7 +93,7 @@ Reply with the number of the option you want to download.
                             // Handle option 2 (Watermark Video)
                             await conn.sendMessage(
                                 from,
-                                { video: { url: data.watermark }, caption: "Here's your TikTok video with watermark.\n> 👾 THENUX  |   AI ジ" },
+                                { video: { url: data.watermark }, caption: "Here's your TikTok video with watermark.\n> 👾 SHIRO-MD" },
                                 { quoted: mek }
                             );
                             break;
@@ -115,7 +109,7 @@ Reply with the number of the option you want to download.
                             // Handle option 4 (Thumbnail)
                             await conn.sendMessage(
                                 from,
-                                { image: { url: data.thumbnail }, caption: "Here's the TikTok thumbnail.\n> 👾 THENUX  |   AI ジ" },
+                                { image: { url: data.thumbnail }, caption: "Here's the TikTok thumbnail.\n> 👾 SHIRO-MD" },
                                 { quoted: mek }
                             );
                             break;
