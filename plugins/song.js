@@ -25,7 +25,7 @@ async (conn, mek, m, { from, q, reply }) => {
 *📜 TITLE*: ➥ ${songDetails.title}\n
 *👀 Views*: ➥ ${data.views}\n
 *⏱️ Time*: ➥ ${data.ago}\n
-*📺 Duration*: ➥ ${dataDetails.timestamp}\n
+*📺 Duration*: ➥ ${data.timestamp}\n
 *📎 Link*: ➥ ${songDetails.url}\n
 *📷 THUMBNAIL*: ➥ ${songDetails.thumbnail}\n
 *🔊 QUALITY*: ➥ ${songDetails.quality}
