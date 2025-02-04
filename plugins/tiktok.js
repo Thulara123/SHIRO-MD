@@ -40,7 +40,7 @@ try{
 
   await m.react('✅');
   let video = data.url;
-  let dev = '© 2024 Queen Anju Tiktok Downloader | Download with ease, cherish forever.'
+  let dev = '© 2025 SHIRO-MD Tiktok Downloader | Download with ease, cherish forever.'
   
   try {
     await conn.sendMessage(m.chat, { video: { url: video }, caption: dev, fileName: 'tt.mp4', mimetype: 'video/mp4' }, { quoted: m });
