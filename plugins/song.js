@@ -2,7 +2,7 @@ const axios = require('axios');
 const { cmd } = require('../command');
 
 cmd({
-    pattern: "song5",
+    pattern: "songdl",
     desc: "Download a specific song using the David Cyril Tech API",
     category: "download",
     use: ".song5 <YouTube URL>",
@@ -46,7 +46,3 @@ async (conn, mek, m, { from, q, reply }) => {
         reply(`${e}`);
     }
 });
-
-
-
-> Thenux-AI
