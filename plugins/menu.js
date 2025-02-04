@@ -36,11 +36,11 @@ let dec = `👋 HEY ${pushname} THIS IS MY MENU 📍
 ╭════════════⊷❍ 
 ┊ 2 || DOWNLOAD MENU
 ┊＿＿＿＿＿＿＿＿＿＿＿
-┊ .song
-┊ .video
-┊ .fb
-┊ .ig
-┊ .tt
+┊ .song <url>
+┊ .video <url>
+┊ .fb <url>
+┊ .ig <url>
+┊ .tt <url>
 
 ╭════════════⊷❍ 
 ┊ 3 || SEARCH MENU
@@ -50,19 +50,19 @@ let dec = `👋 HEY ${pushname} THIS IS MY MENU 📍
 ╭════════════⊷❍ 
 ┊ 4 || GROUP MENU
 ┊＿＿＿＿＿＿＿＿＿＿＿
-┊ .promote
-┊ .demote
-┊ .add
-┊ .remove / .kick
+┊ .promote <tag number>
+┊ .demote <tag number>
+┊ .add <tag number>
+┊ .remove / .kick <tag number>
 ┊ .setgoodbye
 ┊ .setwelcome
-┊ .getpic
+┊ .getpic 
 
 
 ╭════════════⊷❍ 
 ┊ 5 || OWNER MENU
 ┊＿＿＿＿＿＿＿＿＿＿＿
-┊ .srepo
+┊ .srepo <username\name>
 ┊ .restart
 ┊ .setpp
 ┊ .block
@@ -74,10 +74,10 @@ let dec = `👋 HEY ${pushname} THIS IS MY MENU 📍
 ╭════════════⊷❍ 
 ┊ 5 || OTHER MENU
 ┊＿＿＿＿＿＿＿＿＿＿＿
-┊ .weather
-┊ .trt
+┊ .weather <city>
+┊ .trt <language world>
 ┊ .gpass
-┊ .createapi
+┊ .createapi <GET /user text,xml,json>
 
 I AM SHIRO-MD V1 WHATSAPP USER BOT 🇦🇱
 
