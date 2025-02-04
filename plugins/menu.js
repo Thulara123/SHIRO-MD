@@ -12,17 +12,13 @@ async(conn, mek, m,{from, quoted, body, isCmd, command, args, q, isGroup, sender
 try{
 let dec = `👋 HEY ${pushname} THIS IS MY MENU 📍
 
-*© OWNERS*  : ᴏʟᴅ ᴋɪɴɢ ᴀꜱʜ
-                      ᴏʟᴅ ᴋɪɴɢ ᴄʀᴀᴢʏ ᴄʜᴜᴛᴛᴀ
-                      ᴏʟᴅ ᴋɪɴɢ ᴄʀᴀᴢʏ ᴅɪɴᴀ
+*© OWNER*  : ꜱʜɪʀᴏ-ᴍᴅ
                       
-*© SUPPORTER* : ᴅʀᴋ ᴋɪɴɢ ᴠᴀʟᴀ
+*© SUPPORTER* :ꜱʜɪʀᴏ-ᴍᴅ
 
-*© NUMBERS* : +94726645160
-                        +94701219309
-                        +94768844616
+*© NUMBERS* : +94741688630
                         
-*© SUPPORTER NUMBER* : +94767737862
+*© SUPPORTER NUMBER* : +94741688630
 
 ╭──────────●●►
 │📌 LIST MENU
@@ -78,11 +74,11 @@ let dec = `👋 HEY ${pushname} THIS IS MY MENU 📍
 ┊ .ai
 ┊ .news
 
-I AM ACD - MD V1 WHATSAPP USER BOT 🇦🇱
+I AM SHIRO-MD V1 WHATSAPP USER BOT 🇦🇱
 
 
-> POWERED BY THE MAIN CYBER TEAM AND DRAK ARROW 🚩`
-await conn.sendMessage(from,{image:{url: `https://i.ibb.co/Qp22bZ1/IMG-20241129-WA0428.jpg`},caption:dec},{quoted:mek});
+> POWERED BY SHIRO-MD DEVELOPED BY *{C0De_Zero};* 🚩`
+await conn.sendMessage(from,{image:{url: `asset/SHIRO-MD.jpg`},caption:dec},{quoted:mek});
 
 }catch(e){
 console.log(e)
