@@ -11,8 +11,7 @@ cmd({
 async(conn, mek, m,{from, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply}) => {
 try{
 
-let about = ` HELLOW THEIR ${senderNumber} I AM SHIRO-MD WHATSAPP BOT 
-              👋 HEY ${pushname} THIS IS MY MENU 📍
+let about = ` HELLOW THEIR ${pushname} I AM SHIRO-MD WHATSAPP BOT 
               CREATED BY *{C0De_Zero};*
               
               > *© SHIRO Whatsapp Bot*
