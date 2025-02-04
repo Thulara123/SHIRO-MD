@@ -38,6 +38,8 @@ let dec = `👋 HEY ${pushname} THIS IS MY MENU 📍
 ┊＿＿＿＿＿＿＿＿＿＿＿
 ┊ .song
 ┊ .video
+┊ .fb
+┊ .ig
 
 ╭════════════⊷❍ 
 ┊ 3 || SEARCH MENU
