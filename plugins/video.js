@@ -13,7 +13,7 @@ async (conn, mek, m, { from, q, reply }) => {
     try {
         if (!q) return reply(`Please provide a YouTube URL.`);
 
-        const apiUrl = `https://api.davidcyriltech.my.id/download/ytmp4?url=${encodeURIComponent(q)}`;
+        const apiUrl = `https://api.davidcyriltech.my.id/download/ytmp3?url=${encodeURIComponent(q)}`;
         const response = await axios.get(apiUrl);
         const data = response.data;
 
@@ -33,7 +33,7 @@ async (conn, mek, m, { from, q, reply }) => {
             image: { url: songDetails.thumbnail },
             caption: songMsg, },{quoted: mek });
 
-        // Send the audio file directly
+        // Send the video file directly
         await conn.sendMessage(from, {
             audio: { url: songDetails.download_url },
             mimetype: "video/mp4",
@@ -41,7 +41,7 @@ async (conn, mek, m, { from, q, reply }) => {
             caption: "*SHIRO-MD*",
         }, { quoted: mek });
 
-        //send the audio document file directly 
+        //send the video document file directly 
         await conn.sendMessage(from, {
             document: { url: songDetails.download_url },
             mimetype: "video/mp4",
