@@ -31,14 +31,13 @@ let dec = `👋 HEY ${pushname} THIS IS MY MENU 📍
 ┊ .menu
 ┊ .ping
 ┊ .system
+┊ .about
 
 ╭════════════⊷❍ 
 ┊ 2 || DOWNLOAD MENU
 ┊＿＿＿＿＿＿＿＿＿＿＿
 ┊ .song
 ┊ .video
-┊ .fb
-┊ .mediafire
 
 ╭════════════⊷❍ 
 ┊ 3 || SEARCH MENU
@@ -60,19 +59,20 @@ let dec = `👋 HEY ${pushname} THIS IS MY MENU 📍
 ╭════════════⊷❍ 
 ┊ 5 || OWNER MENU
 ┊＿＿＿＿＿＿＿＿＿＿＿
-┊ .shutdown
+┊ .srepo
+┊ .restart
 ┊ .setpp
 ┊ .block
 ┊ .unblock
 ┊ .clearchats
-┊ .restart
+┊ .shutdown
 ┊ .broadcast
 
 ╭════════════⊷❍ 
 ┊ 5 || OTHER MENU
 ┊＿＿＿＿＿＿＿＿＿＿＿
-┊ .ai
-┊ .news
+┊ .weather
+┊ .trt
 
 I AM SHIRO-MD V1 WHATSAPP USER BOT 🇦🇱
 
