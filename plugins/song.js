@@ -2,7 +2,7 @@ const axios = require('axios');
 const { cmd } = require('../command');
 
 cmd({
-    pattern: "songdl",
+    pattern: "song",
     desc: "Download a specific song using the David Cyril Tech API",
     category: "download",
     use: ".song5 <YouTube URL>",
@@ -36,6 +36,13 @@ async (conn, mek, m, { from, q, reply }) => {
         // Send the audio file directly
         await conn.sendMessage(from, {
             audio: { url: songDetails.download_url },
+            mimetype: "audio/mpeg",
+            caption: "Here is your audio file!",
+        }, { quoted: mek });
+
+        //send the audio document file directly 
+        await conn.sendMessage(from, {
+            document: { url: songDetails.download_url },
             mimetype: "audio/mpeg",
             caption: "Here is your audio file!",
         }, { quoted: mek });
