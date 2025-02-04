@@ -23,7 +23,7 @@ async (conn, mek, m, { from, q, reply }) => {
         const songMsg = `*乂 SHIRO-MD SONG DOWNLOADER ◉◉►
 ┏━━━━━━━━━━━━━━━━━━━━━━━━━━┓        
 *📜 TITLE*: ➥ ${songDetails.title}\n
-*👀 Views*: ➥ ${deta.views}\n
+*👀 Views*: ➥ ${data.views}\n
 *⏱️ Time*: ➥ ${data.ago}\n
 *📺 Duration*: ➥ ${dataDetails.timestamp}\n
 *📎 Link*: ➥ ${songDetails.url}\n
