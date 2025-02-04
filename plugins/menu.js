@@ -40,6 +40,7 @@ let dec = `👋 HEY ${pushname} THIS IS MY MENU 📍
 ┊ .video
 ┊ .fb
 ┊ .ig
+┊ .tt
 
 ╭════════════⊷❍ 
 ┊ 3 || SEARCH MENU
@@ -75,6 +76,7 @@ let dec = `👋 HEY ${pushname} THIS IS MY MENU 📍
 ┊＿＿＿＿＿＿＿＿＿＿＿
 ┊ .weather
 ┊ .trt
+┊ .gpass
 
 I AM SHIRO-MD V1 WHATSAPP USER BOT 🇦🇱
 
