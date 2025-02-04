@@ -12,6 +12,7 @@ async(conn, mek, m,{from, quoted, body, isCmd, command, args, q, isGroup, sender
 try{
 
 let about = ` HELLOW THEIR ${senderNumber} I AM SHIRO-MD WHATSAPP BOT 
+              👋 HEY ${pushname} THIS IS MY MENU 📍
               CREATED BY *{C0De_Zero};*
               
               > *© SHIRO Whatsapp Bot*
