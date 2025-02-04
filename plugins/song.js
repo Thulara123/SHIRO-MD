@@ -44,7 +44,7 @@ async (conn, mek, m, { from, q, reply }) => {
         await conn.sendMessage(from, {
             document: { url: songDetails.download_url },
             mimetype: "audio/mpeg",
-            fileName: data.title + ".mp4",
+            fileName: songDetails.title + ".mp4",
             caption: "Here is your audio file!",
         }, { quoted: mek });
 
