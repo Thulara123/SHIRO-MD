@@ -5,7 +5,7 @@ cmd({
     pattern: "song",
     desc: "Download a specific song using the David Cyril Tech API",
     category: "download",
-    use: ".song5 <YouTube URL>",
+    use: ".song <YouTube URL>",
     react: "🎵",
     filename: __filename
 },
@@ -33,20 +33,20 @@ async (conn, mek, m, { from, q, reply }) => {
             image: { url: songDetails.thumbnail },
             caption: songMsg, },{quoted: mek });
 
-        // Send the audio file directly
+        // Send the auduo file directly
         await conn.sendMessage(from, {
             audio: { url: songDetails.download_url },
             mimetype: "audio/mpeg",
-            fileName: songDetails.title + ".mp4",
-            caption: "Here is your audio file!",
+            fileName: songDetails.title + ".mp3",
+            caption: "SHIRO-MD",
         }, { quoted: mek });
 
         //send the audio document file directly 
         await conn.sendMessage(from, {
             document: { url: songDetails.download_url },
             mimetype: "audio/mpeg",
-            fileName: songDetails.title + ".mp4",
-            caption: "Here is your audio file!",
+            fileName: songDetails.title + ".mp3",
+            caption: "*SHIRO-MD*",
         }, { quoted: mek });
 
     } catch (e) {
