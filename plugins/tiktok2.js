@@ -152,6 +152,5 @@ Reply with the number of the option you want to download.
             await reply(`❌ Error: ${error.message}`);
         }
     }
-
-> _*Thenux-AI*_💐🌚
+   
 });
