@@ -74,6 +74,7 @@ let dec = `👋 HEY ${pushname} THIS IS MY MENU 📍
 ╭════════════⊷❍ 
 ┊ 5 || OTHER MENU
 ┊＿＿＿＿＿＿＿＿＿＿＿
+┊ .shiro-mdai
 ┊ .weather <city>
 ┊ .trt <language world>
 ┊ .gpass
