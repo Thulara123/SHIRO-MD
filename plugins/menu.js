@@ -77,6 +77,7 @@ let dec = `👋 HEY ${pushname} THIS IS MY MENU 📍
 ┊ .weather <city>
 ┊ .trt <language world>
 ┊ .gpass
+┊ .ipinfo <Your IP address>
 ┊ .createapi <GET /user text,xml,json>
 
 I AM SHIRO-MD V1 WHATSAPP USER BOT 🇦🇱
