@@ -62,7 +62,7 @@ let dec = `👋 HEY ${pushname} THIS IS MY MENU 📍
 ╭════════════⊷❍ 
 ┊ 5 || OWNER MENU
 ┊＿＿＿＿＿＿＿＿＿＿＿
-┊ .srepo <username\name>
+┊ .srepo <owner/repo>
 ┊ .restart
 ┊ .setpp
 ┊ .block
