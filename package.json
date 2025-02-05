@@ -27,6 +27,6 @@
     "api-dylux": "^1.8.5",
     "ruhend-scraper": "^8.0.8",
     "crypto": "^1.0.1",
-    "mongoose": "^8.9.7"
+    "mongoose": "^8.5.3"
   }
 }
