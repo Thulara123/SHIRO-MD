@@ -8,7 +8,7 @@ cmd({
     pattern: "imagine",
     react: '🪩',
     category: "imagine",
-    desc: desct,
+    desc: "desct",
     dontAddCommandList: true,
     use: '.prodia  woman,hair cut collor red,full body,bokeh',
     filename: __filename
