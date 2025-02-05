@@ -6,6 +6,7 @@ cmd({
     desc: "Get information about an IP address",
     use: ".ipinfo <IP_address>",
     category: "search",
+    react: "🌐",
     filename: __filename
 }, async (conn, mek, m, { from, reply, q }) => {
     try {
