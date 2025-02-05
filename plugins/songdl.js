@@ -11,12 +11,12 @@ cmd({
 }, async (conn, mek, m, { from, reply, args }) => {
     try {
         // Check if URL is provided
-        if (!q) {
+        if (!args[0]) {
             return await reply("📥 Please provide a Youtube video URL.");
         }
 
         const tiktokUrl = args[0];
-        const apiUrl = `https://api.davidcyriltech.my.id/download/ytmp3?url=${encodeURIComponent(q)}`;
+        const apiUrl = `https://api.davidcyriltech.my.id/download/ytmp3?url=${encodeURIComponent(!args[0])}`;
 
         // Send request to the API
         const response = await axios.get(apiUrl);
