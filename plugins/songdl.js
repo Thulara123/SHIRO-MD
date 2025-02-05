@@ -11,7 +11,7 @@ cmd({
 }, async (conn, mek, m, { from, reply, args }) => {
     try {
         // Check if URL is provided
-        if (!args[0]) {
+        if (!q) {
             return await reply("📥 Please provide a Youtube video URL.");
         }
 
