@@ -52,10 +52,10 @@ let dec = `👋 HEY ${pushname} THIS IS MY MENU 📍
 ┊＿＿＿＿＿＿＿＿＿＿＿
 ┊ .promote <tag number>
 ┊ .demote <tag number>
-┊ .add <tag number>
+┊ .add <Enter number with country code>
 ┊ .remove / .kick <tag number>
-┊ .setgoodbye
-┊ .setwelcome
+┊ .setgoodbye <text>
+┊ .setwelcome <text>
 ┊ .getpic 
 
 
@@ -64,17 +64,17 @@ let dec = `👋 HEY ${pushname} THIS IS MY MENU 📍
 ┊＿＿＿＿＿＿＿＿＿＿＿
 ┊ .srepo <owner/repo>
 ┊ .restart
-┊ .setpp
-┊ .block
-┊ .unblock
-┊ .clearchats
+┊ .setpp <mention picture>
+┊ .block <tag number>
+┊ .unblock <tag number>
+┊ .clearchats <tag number>
 ┊ .shutdown
-┊ .broadcast
+┊ .broadcast <text>
 
 ╭════════════⊷❍ 
 ┊ 5 || OTHER MENU
 ┊＿＿＿＿＿＿＿＿＿＿＿
-┊ .shiro-mdai
+┊ .shiro-mdai <Description Here>
 ┊ .weather <city>
 ┊ .trt <language world>
 ┊ .gpass
