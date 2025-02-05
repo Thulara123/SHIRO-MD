@@ -28,7 +28,7 @@ cmd({
         resultMessage += `📏 Latitude: ${data.latitude}\n`;
         resultMessage += `📏 Longitude: ${data.longitude}\n`;
         resultMessage += `📞 Calling Code: ${data.calling_code}\n`;
-        resultMessage += `🕒 Time Zone: ${data.time_zone.name?}\n`;
+        resultMessage += `🕒 Time Zone: ${data.time_zone.name}\n`;
         resultMessage += `💻 ISP: ${data.isp}\n`;
         resultMessage += `🏳️ Country Flag: ${data.country_flag}\n`;
 
