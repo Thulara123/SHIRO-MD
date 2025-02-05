@@ -33,6 +33,14 @@ async (conn, mek, m, { from, q, reply }) => {
             image: { url: songDetails.thumbnail },
             caption: songMsg, },{quoted: mek });
 
+        //send rhe video file directly
+        await conn.sendMessage(from, {
+            video: { url: songDetails.download_url },
+            mimetype: "video/mp4",
+            fileName: songDetails.title + ".mp4",
+            caption: "*SHIRO-MD*",
+        }, { quoted: mek });
+
         //send the video document file directly 
         await conn.sendMessage(from, {
             document: { url: songDetails.download_url },
