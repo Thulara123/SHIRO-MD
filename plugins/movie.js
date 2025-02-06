@@ -30,7 +30,7 @@ async (conn, mek, m, { from, reply, q }) => {
         if (!movie.videoUrl) {
             return reply(`⛔ මෙම මූව්වී එක සඳහා ඩවුන්ලෝඩ් සම්බන්ධීකරණයක් ලබා ගත නොහැක.`);
         }
-[06/02, 08:11] ChatGPT: // movie video file එක WhatsApp මඟින් පරිශීලකයාට එවීම
+        // movie video file එක WhatsApp මඟින් පරිශීලකයාට එවීම
         const videoFileName = `movie.title.mp4`;
         
         // නිවැරදිව url එක යොදීම
