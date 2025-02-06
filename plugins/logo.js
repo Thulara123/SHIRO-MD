@@ -2,7 +2,6 @@ const { tlang,cmd } = require('../lib')
  const Config = require('../config')
  const prefix = Config.prefix
  const maker = require('mumaker')
- let cap =` *_Made By ${Config.botname}_*`
      //---------------------------------------------------------------------------
  cmd({ pattern: "deepsea", category: "textpro", desc: "Some text to image feature with various styles." }, async(Void, citel, text) => {
          if (!text) return citel.reply('Need text.')
