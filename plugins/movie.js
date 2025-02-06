@@ -1,39 +1,40 @@
-const { cmd } = require('../command'); // Assuming you're using a command handler
+const { cmd } = require('../command'); // Command handler
+const fs = require('fs');
+const path = require('path');
 
-// Example movie download links data
+// Example Movie Download Links (These are just placeholders)
 const movieDownloads = {
     "inception": {
         title: "Inception",
-        downloadLink: "https://example.com/inception-movie-download",
+        videoUrl: "https://example.com/inception-movie.mp4", // Movie video URL (this should point to a video file)
     },
     "the dark knight": {
         title: "The Dark Knight",
-        downloadLink: "https://example.com/the-dark-knight-download",
+        videoUrl: "https://example.com/the-dark-knight.mp4",
     },
     "interstellar": {
         title: "Interstellar",
-        downloadLink: "https://example.com/interstellar-movie-download",
+        videoUrl: "https://example.com/interstellar-movie.mp4",
     },
     "the godfather": {
         title: "The Godfather",
-        downloadLink: "https://example.com/the-godfather-download",
+        videoUrl: "https://example.com/the-godfather.mp4",
     }
 };
-
-// Command to fetch movie download link
+// Command to fetch and send movie download link
 cmd({
-    pattern: "moviedl",
+    pattern: "moviedownload",
     react: '🎬',
-    category: "movies", // category of the command
-    desc: "Get movie download link",
-    use: '.moviedownload <movie_name>', // usage guide
+    category: "movies",
+    desc: "Get movie download video file",
+    use: '.moviedownload <movie_name>', // Command usage
     filename: __filename
 },
 async (conn, mek, m, { from, reply, q }) => {
     try {
-        // Check if a movie name was provided
+        // Check if the user has provided the movie name
         if (!q) {
-return reply("⛔ Please provide the name of the movie. Usage: .moviedownload <movie_name>");
+            return reply("⛔ Please provide the movie name. Usage: .moviedownload <movie_name>");
         }
 
         // Normalize the input movie name (case-insensitive search)
@@ -44,18 +45,25 @@ return reply("⛔ Please provide the name of the movie. Usage: .moviedownload <m
             return reply(`⛔ Movie not found. Please try another movie name.`);
         }
 
-        // Send movie download link
-        const message = `
-        🎬 *Movie Download Link:*
+        // Check if the video file URL is valid
+        if (!movie.videoUrl) {
+            return reply(`⛔ Sorry, no download link is available for this movie.`);
+        }
 
-        Title: movie.title
-        Download Here: [{movie.title} Download](${movie.downloadLink})
-        `;
+        // Send the movie video file as a document (if the URL points to a video file)
+        const videoFileName = `${movie.title}.mp4`;
+        const videoFilePath = path.join(__dirname, videoFileName);
 
-        // Send the movie download link
-        reply(message);
+        // Assuming the video file exists on the server or you have a working video URL
+// For this example, I'm using a placeholder URL
+        conn.sendMessage(from, 
+            video:  url: movie.videoUrl ,
+            mimetype: 'video/mp4',
+            caption: `🎬 *Movie Download:{movie.title}*`
+        }, { quoted: mek });
+
     } catch (e) {
         console.error(e);
-        reply("😓 Something went wrong while fetching the movie download link.");
+        reply("😓 Something went wrong while fetching the movie video.");
     }
 });
