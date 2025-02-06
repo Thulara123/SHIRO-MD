@@ -9,6 +9,7 @@ cmd(
     alias: ["img", "photo"],
     desc: "Convert a sticker to an image",
     category: "utility",
+    react: "🖼️",
     filename: __filename,
   },
   async (
