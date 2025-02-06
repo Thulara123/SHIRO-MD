@@ -5,7 +5,7 @@ const fs = require("fs");
 
 cmd(
   {
-    pattern: "toimg",
+    pattern: "img",
     alias: ["img", "photo"],
     desc: "Convert a sticker to an image",
     category: "utility",
