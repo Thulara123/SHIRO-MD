@@ -32,6 +32,7 @@ let dec = `👋 HEY ${pushname} THIS IS MY MENU 📍
 ┊ .ping
 ┊ .system
 ┊ .about
+┊ .restart
 
 ╭════════════⊷❍ 
 ┊ 2 || DOWNLOAD MENU
@@ -48,7 +49,7 @@ let dec = `👋 HEY ${pushname} THIS IS MY MENU 📍
 ┊ .yts
 
 ╭════════════⊷❍ 
-┊ 4 || GROUP MENU
+┊ 4 || OWNER MENU
 ┊＿＿＿＿＿＿＿＿＿＿＿
 ┊ .promote <tag number>
 ┊ .demote <tag number>
@@ -59,11 +60,6 @@ let dec = `👋 HEY ${pushname} THIS IS MY MENU 📍
 ┊ .block <tag number>
 ┊ .unblock <tag number>
 ┊ .left
-
-╭════════════⊷❍ 
-┊ 5 || OWNER MENU
-┊＿＿＿＿＿＿＿＿＿＿＿
-┊ .restart
 
 ╭════════════⊷❍ 
 ┊ 5 || OTHER MENU
