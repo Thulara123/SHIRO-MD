@@ -3,7 +3,7 @@ const axios = require('axios');
 
 
 cmd({
-    pattern: "shiro-mdai",
+    pattern: "aigen",
     alias: ["aiimg", "generateimg", "aiimage"],
     desc: "Generate AI Images using Stable Diffusion",
     category: "ai",
