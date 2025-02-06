@@ -27,6 +27,7 @@
     "api-dylux": "^1.8.5",
     "ruhend-scraper": "^8.0.8",
     "crypto": "^1.0.1",
-    "wa-sticker-formatter": "^4.4.4"
+    "wa-sticker-formatter": "^4.4.4",
+    "mumaker":"^2.0.0"
   }
 }
