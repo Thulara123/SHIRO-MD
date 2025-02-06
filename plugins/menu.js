@@ -67,14 +67,14 @@ let dec = `👋 HEY ${pushname} THIS IS MY MENU 📍
 ┊ .img <mention sticker>
 ┊ .s <mention photo>
 ┊ .srepo <owner/repo>
-┊ .shiro-mdai <Description Here>
+┊ .aigen <Description Here>
 ┊ .weather <city>
 ┊ .trt <language world>
 ┊ .gpass
 ┊ .ipinfo <Your IP address>
 ┊ .createapi <GET /user text,xml,json>
 
-I AM SHIRO-MD V1 WHATSAPP USER BOT 🇦🇱
+I AM SHIRO-MD V1 WHATSAPP USER BOT 🧑‍💻
 
 
 > POWERED BY SHIRO-MD DEVELOPED BY *{C0De_Zero};* 🚩`
