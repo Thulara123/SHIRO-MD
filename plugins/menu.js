@@ -54,26 +54,21 @@ let dec = `👋 HEY ${pushname} THIS IS MY MENU 📍
 ┊ .demote <tag number>
 ┊ .add <Enter number with country code>
 ┊ .remove / .kick <tag number>
-┊ .setgoodbye <text>
-┊ .setwelcome <text>
-┊ .getpic 
-
+┊ .mute
+┊ .unmute
+┊ .block <tag number>
+┊ .unblock <tag number>
+┊ .left
 
 ╭════════════⊷❍ 
 ┊ 5 || OWNER MENU
 ┊＿＿＿＿＿＿＿＿＿＿＿
-┊ .srepo <owner/repo>
 ┊ .restart
-┊ .setpp <mention picture>
-┊ .block <tag number>
-┊ .unblock <tag number>
-┊ .clearchats <tag number>
-┊ .shutdown
-┊ .broadcast <text>
 
 ╭════════════⊷❍ 
 ┊ 5 || OTHER MENU
 ┊＿＿＿＿＿＿＿＿＿＿＿
+┊ .srepo <owner/repo>
 ┊ .shiro-mdai <Description Here>
 ┊ .weather <city>
 ┊ .trt <language world>
