@@ -1,4 +1,4 @@
- const {cmd , Config , prefix,getBuffer,tlang,fetchJson } = require('../lib')
+ const {cmd , Config , prefix,getBuffer,tlang,fetchJson } = require('../lib/funtion')
  const fetch = require('node-fetch')
 
 
