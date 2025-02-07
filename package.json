@@ -1,3 +1,4 @@
+",
 {
   "name": "SHIRO-MD",
   "version": "1.0.0",
@@ -28,6 +29,11 @@
     "ruhend-scraper": "^8.0.8",
     "crypto": "^1.0.1",
     "wa-sticker-formatter": "^4.4.4",
-    "mumaker":"^2.0.0"
+    "mumaker":"^2.0.0",
+    "cheerio": "^1.0.0",
+    "@sl-code-lords/movie-api": "^1.0.0",
+    "dark-yasiya-sinhalasub.lk": "^1.0.1",
+    "mrnima-moviedl": "^1.0.0"
+
   }
 }
