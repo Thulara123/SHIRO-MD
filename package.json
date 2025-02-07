@@ -32,8 +32,7 @@
     "cheerio": "^1.0.0",
     "@sl-code-lords/movie-api": "^1.0.0",
     "dark-yasiya-sinhalasub.lk": "^1.0.1",
-    "mrnima-moviedl": "^1.0.0",
-    "pixaldrain-sinhalasub": "^1.0.0"
+    "mrnima-moviedl": "^1.0.0"
 
   }
 }
