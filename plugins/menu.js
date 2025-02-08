@@ -31,6 +31,7 @@ let dec = `👋 HEY ${pushname} THIS IS MY MENU 📍
 ┊ .menu
 ┊ .ping
 ┊ .system
+┊ .runtime
 ┊ .about
 ┊ .restart
 
