@@ -34,25 +34,6 @@ let dec = `👋 HEY ${pushname} THIS IS MY MENU 📍
 ┊ .about
 ┊ .restart
 
-╭════════════⊷❍ 
-┊ 2 || DOWNLOAD MENU
-┊＿＿＿＿＿＿＿＿＿＿＿
-┊ .song <url>
-┊ .video <url>
-┊ .fb <url>
-
-╭════════════⊷❍ 
-┊ 3 || OWNER MENU
-┊＿＿＿＿＿＿＿＿＿＿＿
-┊ .promote <tag number>
-┊ .demote <tag number>
-┊ .add <Enter number with country code>
-┊ .remove / .kick <tag number>
-┊ .mute
-┊ .unmute
-┊ .block <tag number>
-┊ .unblock <tag number>
-
 I AM SHIRO-MD V1 WHATSAPP USER BOT 🧑‍💻
 
 
