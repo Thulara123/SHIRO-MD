@@ -22,7 +22,8 @@ let status = `
 
 > *SHIRO-MD*
 `
-return reply(`${status}`)
+await conn.sendMessage(from,{image:{url: `asset/SHIRO-MD.jpg`},caption:status},{quoted:mek});
+
 }catch(e){
 console.log(e)
 reply(`${e}`)
