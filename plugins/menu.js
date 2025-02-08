@@ -40,16 +40,9 @@ let dec = `👋 HEY ${pushname} THIS IS MY MENU 📍
 ┊ .song <url>
 ┊ .video <url>
 ┊ .fb <url>
-┊ .ig <url>
-┊ .tt <url>
 
 ╭════════════⊷❍ 
-┊ 3 || SEARCH MENU
-┊＿＿＿＿＿＿＿＿＿＿＿
-┊ .yts
-
-╭════════════⊷❍ 
-┊ 4 || OWNER MENU
+┊ 3 || OWNER MENU
 ┊＿＿＿＿＿＿＿＿＿＿＿
 ┊ .promote <tag number>
 ┊ .demote <tag number>
@@ -59,20 +52,6 @@ let dec = `👋 HEY ${pushname} THIS IS MY MENU 📍
 ┊ .unmute
 ┊ .block <tag number>
 ┊ .unblock <tag number>
-┊ .left
-
-╭════════════⊷❍ 
-┊ 5 || OTHER MENU
-┊＿＿＿＿＿＿＿＿＿＿＿
-┊ .img <mention sticker>
-┊ .s <mention photo>
-┊ .srepo <owner/repo>
-┊ .aigen <Description Here>
-┊ .weather <city>
-┊ .trt <language world>
-┊ .gpass
-┊ .ipinfo <Your IP address>
-┊ .createapi <GET /user text,xml,json>
 
 I AM SHIRO-MD V1 WHATSAPP USER BOT 🧑‍💻
 
