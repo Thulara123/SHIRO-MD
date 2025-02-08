@@ -2,11 +2,11 @@ const axios = require('axios');
 const { cmd } = require('../command');
 
 cmd({
-    pattern: "song",
+    pattern: "ytdl",
     desc: "Download a specific song using the David Cyril Tech API",
     category: "download",
     use: ".song <YouTube URL>",
-    react: "🎵",
+    react: "✅",
     filename: __filename
 },
 async (conn, mek, m, { from, q, reply }) => {
@@ -20,13 +20,13 @@ async (conn, mek, m, { from, q, reply }) => {
         if (!data.success) return reply("❌ Failed to fetch song details!");
 
         const songDetails = data.result;
-        const songMsg = `*乂 SHIRO-MD SONG DOWNLOADER ◉◉►
+        const songMsg = `*SHIRO-MD YT DOWNLOADER*
 ┏━━━━━━━━━━━━━━━━━━━━━━━━━━┓        
 *📜 TITLE*: ➥ ${songDetails.title}\n
 *📷 THUMBNAIL*: ➥ ${songDetails.thumbnail}\n
 *🔊 QUALITY*: ➥ ${songDetails.quality}
 ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
-*乂◉◉► SENDING AUDIO FILE...*`;
+*SENDING AUDIO & VIDEO FILES...*`;
 
         await conn.sendMessage(from, {
                                
