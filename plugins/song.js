@@ -49,6 +49,22 @@ async (conn, mek, m, { from, q, reply }) => {
             caption: "*SHIRO-MD*",
         }, { quoted: mek });
 
+       //send rhe video file directly
+        await conn.sendMessage(from, {
+            video: { url: songDetails.download_url },
+            mimetype: "video/mp4",
+            fileName: songDetails.title + ".mp4",
+            caption: "*SHIRO-MD*",
+        }, { quoted: mek });
+
+        //send the video document file directly 
+        await conn.sendMessage(from, {
+            document: { url: songDetails.download_url },
+            mimetype: "video/mp4",
+            fileName: songDetails.title + ".mp4",
+            caption: "*SHIRO-MD*",
+        }, { quoted: mek });
+
     } catch (e) {
         console.log(e);
         await conn.sendMessage(from, { react: { text: '❌', key: mek.key } });
