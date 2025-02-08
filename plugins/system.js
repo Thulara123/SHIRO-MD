@@ -5,25 +5,46 @@ const {runtime} = require('../lib/functions')
 cmd({
     pattern: "system",
     alias: ["status","botinfo"],
-    desc: "Check up time , ram usage and more",
+    desc: "To Check uptime , ram and more.",
     category: "main",
-    react: "💻",
     filename: __filename
 },
 async(conn, mek, m,{from, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply}) => {
 try{
-let msg = `┌───────────────────────
-├ ⏰ *Runtime:-* ${runtime(process.uptime())}
-├ 📟 *Ram usage:-* ${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}MB / ${Math.round(require('os').totalmem / 1024 / 1024)}MB
-├ ⚙️ *Platform:-* ${os.hostname()}
-├ 👨‍💻 *Owners:-* *{C0De_Zero};*
-├ 🧬 *Version:-* 1.0.0
-└───────────────────────
 
-*©ᴘᴏᴡᴇʀᴇᴅ ʙʏ ꜱʜɪʀᴏ-ᴍᴅ*
+let status = `
+🏷️ SYSTEM STATUS
+
+🔄 UPTIME: ${runtime(process.uptime())}
+🔋 RAM USAGE: ${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}MB / ${Math.round(require('os').totalmem / 1024 / 1024)}MB
+💻 HOST NAME: ${os.hostname()}
+👑 BOT OWNER: *{C0De_Zero};*
+
+> *SHIRO-MD*
 `
-return reply(`${msg}`)
-  
+return reply(`${status}`)
+}catch(e){
+console.log(e)
+reply(`${e}`)
+
+}
+})
+
+
+cmd({
+    pattern: "runtime",
+    alias: ["uptime"],
+    desc: "To Check uptime",
+    category: "main",
+    filename: __filename
+},
+async(conn, mek, m,{from, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply}) => {
+try{
+
+let status = `😇𝚁𝚄𝙽𝚃𝙸𝙼𝙴😇:  ${runtime(process.uptime())}`
+
+
+return reply(`${status}`)
 }catch(e){
 console.log(e)
 reply(`${e}`)
