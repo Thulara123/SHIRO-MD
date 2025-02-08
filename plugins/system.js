@@ -7,6 +7,7 @@ cmd({
     alias: ["status","botinfo"],
     desc: "To Check uptime , ram and more.",
     category: "main",
+    react: "⚙️",
     filename: __filename
 },
 async(conn, mek, m,{from, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply}) => {
@@ -37,15 +38,15 @@ cmd({
     alias: ["uptime"],
     desc: "To Check uptime",
     category: "main",
+    react: "⚙️",
     filename: __filename
 },
 async(conn, mek, m,{from, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply}) => {
 try{
 
 let status = `😇𝚁𝚄𝙽𝚃𝙸𝙼𝙴😇:  ${runtime(process.uptime())}`
+await conn.sendMessage(from,{image:{url: `asset/SHIRO-MD.jpg`},caption:status},{quoted:mek});
 
-
-return reply(`${status}`)
 }catch(e){
 console.log(e)
 reply(`${e}`)
