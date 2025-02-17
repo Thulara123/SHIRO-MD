@@ -18,14 +18,14 @@ cmd({
     filename: __filename
 }, async (robin, m, mek, { from, q, reply }) => {
     try {
-        if (!q || q.trim() === '') return await reply('鉂� Please provide a movie name! (e.g., Deadpool)');
+        if (!q || q.trim() === '') return await reply('❌ Please provide a movie name! (e.g., Deadpool)');
 
         // Fetch movie search results
         const searchUrl = `${API_URL}?q=${encodeURIComponent(q)}&api_key=${API_KEY}`;
         let response = await fetchJson(searchUrl);
 
         if (!response || !response.SearchResult || !response.SearchResult.result.length) {
-            return await reply(`鉂� No results found for: *${q}*`);
+            return await reply(`❌ No results found for: *${q}*`);
         }
 
         const selectedMovie = response.SearchResult.result[0]; // Select first result
@@ -33,73 +33,51 @@ cmd({
         let detailsResponse = await fetchJson(detailsUrl);
 
         if (!detailsResponse || !detailsResponse.downloadLinks || !detailsResponse.downloadLinks.result.links.driveLinks.length) {
-            return await reply('鉂� No PixelDrain download links found.');
+            return await reply('❌ No PixelDrain download links found.');
         }
 
-        // Send movie details first
-        const movieDetails = `
-            *Title*: ${selectedMovie.title}
-            *Description*: ${selectedMovie.description || "No description available."}
-            *Release Year*: ${selectedMovie.year}
-            *Quality Options*: ${detailsResponse.downloadLinks.result.links.driveLinks.map(link => `${link.quality} - ${link.size}`).join(", ")}
-        `;
+        // Select the 720p PixelDrain link
+        const pixelDrainLinks = detailsResponse.downloadLinks.result.links.driveLinks;
+        const selectedDownload = pixelDrainLinks.find(link => link.quality === "SD 480p");
         
-        await reply(movieDetails + '\n\nDo you want to download this movie? Reply with "Yes" to confirm.');
+        if (!selectedDownload || !selectedDownload.link.startsWith('http')) {
+            return await reply('❌ No valid 480p PixelDrain link available.');
+        }
 
-        // Wait for user response (Yes or No)
-        const collector = await robin.createMessageCollector({
-            filter: msg => msg.from === from && msg.text.toLowerCase() === 'yes',
-            time: 60000 // 60 seconds for reply
+        // Convert to direct download link
+        const fileId = selectedDownload.link.split('/').pop();
+        const directDownloadLink = `https://pixeldrain.com/api/file/${fileId}?download`;
+        
+        
+        // Download movie
+        const filePath = path.join(__dirname, `${selectedMovie.title}-480p-SHIRO-MD.mp4`);
+        const writer = fs.createWriteStream(filePath);
+        
+        const { data } = await axios({
+            url: directDownloadLink,
+            method: 'GET',
+            responseType: 'stream'
         });
 
-        collector.on('collect', async (msg) => {
-            // Proceed with downloading the movie
-            const selectedDownload = detailsResponse.downloadLinks.result.links.driveLinks.find(link => link.quality === "SD 480p");
-            
-            if (!selectedDownload || !selectedDownload.link.startsWith('http')) {
-                return await reply('鉂� No valid 480p PixelDrain link available.');
-            }
+        data.pipe(writer);
 
-            // Convert to direct download link
-            const fileId = selectedDownload.link.split('/').pop();
-            const directDownloadLink = `https://pixeldrain.com/api/file/${fileId}?download`;
-
-            // Download movie
-            const filePath = path.join(__dirname, `${selectedMovie.title}-480p.mp4`);
-            const writer = fs.createWriteStream(filePath);
-            
-            const { data } = await axios({
-                url: directDownloadLink,
-                method: 'GET',
-                responseType: 'stream'
+        writer.on('finish', async () => {
+            await robin.sendMessage(from, {
+                document: fs.readFileSync(filePath),
+                mimetype: 'video/mp4',
+                fileName: `${selectedMovie.title}-480p.mp4`,
+                caption: `🎬 *${selectedMovie.title}*\n\n📌 Quality: 480p\n\n✅ *Download Complete!*\n\n> *SHIRO-MD*`,
+                quoted: mek 
             });
-
-            data.pipe(writer);
-
-            writer.on('finish', async () => {
-                await robin.sendMessage(from, {
-                    document: fs.readFileSync(filePath),
-                    mimetype: 'video/mp4',
-                    fileName: `${selectedMovie.title}-480p.mp4`,
-                    caption: `馃幀 *${selectedMovie.title}*\n馃搶 Quality: 480p\n鉁� *Download Complete!*`,
-                    quoted: mek 
-                });
-                fs.unlinkSync(filePath);
-            });
-
-            writer.on('error', async (err) => {
-                console.error('Download Error:', err);
-                await reply('鉂� Failed to download movie. Please try again.');
-            });
+            fs.unlinkSync(filePath);
         });
 
-        collector.on('end', (collected, reason) => {
-            if (reason === 'time') {
-                robin.sendMessage(from, '鉂� No response received. Movie download canceled.');
-            }
+        writer.on('error', async (err) => {
+            console.error('Download Error:', err);
+            await reply('❌ Failed to download movie. Please try again.');
         });
     } catch (error) {
         console.error('Error in movie command:', error);
-        await reply('鉂� Sorry, something went wrong. Please try again later.');
+        await reply('❌ Sorry, something went wrong. Please try again later.');
     }
 });
