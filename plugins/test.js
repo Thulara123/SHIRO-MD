@@ -74,4 +74,3 @@
  m.reply("🚫 *Terjadi kesalahan saat mengambil data surah.*");
  });
  }
- break
