@@ -1,61 +1,58 @@
-import fetch from "node-fetch";
-import { translate } from "bing-translate-api";
+const { Client } = require('whatsapp-web.js');
+const qrcode = require('qrcode-terminal');
+const fg = require('api-dylux');
+const yts = require('yt-search');
 
-async function DoppleAi(prompt) {
-    const url = "https://beta.dopple.ai/api/messages/send";
-    const headers = {
-        "Content-Type": "application/json",
-        "User-Agent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Mobile Safari/537.36",
-        Referer: "https://beta.dopple.ai/messages",
-    };
-    const body = JSON.stringify({
-        streamMode: "none",
-        chatId: "632cef078c294913b5b4653869eca845",
-        folder: "",
-        images: false,
-        username: "mn0uvp2fhv",
-        persona_name: "",
-        id: "46db0561-cb3e-43d9-8f50-40b3e3c84713",
-        userQuery: prompt,
-    });
+// WhatsApp client එක සකස් කිරීම
+const client = new Client();
 
-    try {
-        const response = await fetch(url, { method: "POST", headers, body });
-        const data = await response.json();
-        return data.response;
-    } catch (error) {
-        console.error("Error:", error);
-        return "Maaf, ada kesalahan dalam mengambil respons.";
+// QR code එක generate කිරීම (WhatsApp Web වල login වීමට)
+client.on('qr', (qr) => {
+    qrcode.generate(qr, { small: true });
+console.log('Scan this QR code to login into WhatsApp!');
+});
+
+// Client එක සාර්ථකව සම්බන්ධ වීම
+client.on('ready', () => {
+    console.log('WhatsApp Bot is ready!');
+});
+
+// Song download සඳහා command
+client.on('message', async (message) => {
+    const { body } = message;
+
+    if (body.startsWith('!song')) {  // Song download command
+        const query = body.slice(6).trim();  // Extract song name or URL
+        if (!query) {
+            message.reply('Please provide a song name or YouTube URL.');
+            return;
+        }
+
+        try {
+            // YouTube හෝ song search කිරීම
+            const search = await yts(query);
+            const video = search.videos[0];
+            const url = video.url;
+            const desc = `
+            *Song Download*
+
+            *Title:* video.title
+            *Description:*{video.description}
+            *Views:* ${video.views}
+            `;
+
+            // Song thumbnail සහ description එවීම
+            await message.reply({ image: { url: video.thumbnail }, caption: desc });
+
+            // Song download URL ලබා ගැනීම
+            const downloadData = await fg.yta(url);
+            const downloadUrl = downloadData.dl_url;
+
+            // Audio file එක WhatsApp එකට යැවීම
+        await message.reply({ audio: { url: downloadUrl }, mimetype: 'audio/mpeg' });
+        } catch (error) {
+            console.error(error);
+            message.reply('Something went wrong. Please try again.');
+        }
     }
-}
-
-async function translateToIndonesian(text) {
-    try {
-        const result = await translate(text, null, "id");
-        return result.translation;
-    } catch (error) {
-        console.error("Error saat menerjemahkan:", error);
-        return text;
-    }
-}
-
-let handler = async (m, { conn, text }) => {
-    if (!text) return m.reply("Masukkan pertanyaan untuk AI!");
-    let aiResponse = await DoppleAi(text);
-    let translatedResponse = await translateToIndonesian(aiResponse);
-
-    let message = {
-        image: { url: "https://img5.pixhost.to/images/2852/566434342_senjudzz.jpg" },
-        caption: translatedResponse,
-        quoted: m
-    };
-
-    conn.sendMessage(m.chat, message);
-};
-
-handler.help = ['dopple'];
-handler.tags = ['ai']
-handler.command = ['dopple'];
-handler.limit = false;
-
-export default handler;
+});
