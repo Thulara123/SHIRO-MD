@@ -1,58 +1,77 @@
-const { Client } = require('whatsapp-web.js');
-const qrcode = require('qrcode-terminal');
-const fg = require('api-dylux');
-const yts = require('yt-search');
+case 'selectsurah': {
+ const axios = require('axios');
+ const cheerio = require('cheerio');
 
-// WhatsApp client එක සකස් කිරීම
-const client = new Client();
+ async function selectSurah(link){ 
+ let { data }= await axios.get(link)
+ const $ = cheerio.load(data)
+ const Result = []
+ const Isi = []
+ var surah = $('body > main > article > h1').text()
+ var bismillah = $('body > main > article > p').text()
+ $('body > main > article > ol > li:nth-child(n)').each((i, e) => {
+ const arabic = $(e).find('p.arabic').text()
+ const baca = $(e).find('p.translate').text()
+ const arti = $(e).find('p.meaning').text()
+ Isi.push({
+ arabic,
+ baca,
+ arti,
+ });
+ });
+ Result.push({surah, bismillah}, Isi)
+ return Result
+ }
 
-// QR code එක generate කිරීම (WhatsApp Web වල login වීමට)
-client.on('qr', (qr) => {
-    qrcode.generate(qr, { small: true });
-console.log('Scan this QR code to login into WhatsApp!');
-});
+ async function listsurah(){
+ let { data }= await axios.get('https://litequran.net/')
+ const $ = cheerio.load(data)
+ const Result = []
+ $('body > main > ol > li:nth-child(n)').each((i, e) => {
+ const name_surah = $(e).find('a').text()
+ const link = 'https://litequran.net/' + $(e).find('a').attr('href')
+ Result.push({
+ link,
+ name_surah,
+ });
+ });
+ return Result
+ }
 
-// Client එක සාර්ථකව සම්බන්ධ වීම
-client.on('ready', () => {
-    console.log('WhatsApp Bot is ready!');
-});
+ async function getSurah(surahIndex) {
+ const surahList = await listsurah();
 
-// Song download සඳහා command
-client.on('message', async (message) => {
-    const { body } = message;
+ if (surahIndex < 1 || surahIndex > surahList.length) {
+ return "🚫 *Nomor surah tidak valid.* Silakan masukkan nomor surah yang sesuai.";
+ }
 
-    if (body.startsWith('!song')) {  // Song download command
-        const query = body.slice(6).trim();  // Extract song name or URL
-        if (!query) {
-            message.reply('Please provide a song name or YouTube URL.');
-            return;
-        }
+ const selectedSurah = surahList[surahIndex - 1];
+ const surahContent = await selectSurah(selectedSurah.link);
 
-        try {
-            // YouTube හෝ song search කිරීම
-            const search = await yts(query);
-            const video = search.videos[0];
-            const url = video.url;
-            const desc = `
-            *Song Download*
+ let response = `🕌 *Surah ${surahContent[0].surah}*\n`;
+ response += `📜 *Ayat yang penuh hikmah dan petunjuk bagi umat*:\n\n`;
 
-            *Title:* video.title
-            *Description:*{video.description}
-            *Views:* ${video.views}
-            `;
+ surahContent[1].forEach((ayah, index) => {
+ response += `*𖦹 Ayat ${index + 1}:*\n`;
+ response += `🕋 ${ayah.arabic}\n`;
+ response += `📖 ${ayah.baca}\n`;
+ response += `📚 ${ayah.arti}\n\n`;
+ });
 
-            // Song thumbnail සහ description එවීම
-            await message.reply({ image: { url: video.thumbnail }, caption: desc });
+ response += `\n🤲 *Semoga kita selalu diberkahi oleh Allah dengan petunjuk dari ayat-ayat ini.*\n`;
 
-            // Song download URL ලබා ගැනීම
-            const downloadData = await fg.yta(url);
-            const downloadUrl = downloadData.dl_url;
+ return response;
+ }
 
-            // Audio file එක WhatsApp එකට යැවීම
-        await message.reply({ audio: { url: downloadUrl }, mimetype: 'audio/mpeg' });
-        } catch (error) {
-            console.error(error);
-            message.reply('Something went wrong. Please try again.');
-        }
-    }
-});
+ // Fungsi pengiriman pesan
+ const surahIndex = parseInt(args[0]);
+ if (isNaN(surahIndex)) {
+ m.reply("🚫 *Masukkan nomor surah yang valid.*");
+ } else {
+ getSurah(surahIndex).then(response => {
+ m.reply(response);
+ }).catch(err => {
+ m.reply("🚫 *Terjadi kesalahan saat mengambil data surah.*");
+ });
+ }
+ break
