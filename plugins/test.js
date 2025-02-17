@@ -1,37 +1,61 @@
-const axios = require('axios');
-const cheerio = require('cheerio');
+import fetch from "node-fetch";
+import { translate } from "bing-translate-api";
 
-class SnackVideo {
-    async download(url) {
-        try {
-            let res = await axios.get(url);
-            let $ = cheerio.load(res.data);
-            let json = JSON.parse($("#VideoObject").text().trim());
+async function DoppleAi(prompt) {
+    const url = "https://beta.dopple.ai/api/messages/send";
+    const headers = {
+        "Content-Type": "application/json",
+        "User-Agent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Mobile Safari/537.36",
+        Referer: "https://beta.dopple.ai/messages",
+    };
+    const body = JSON.stringify({
+        streamMode: "none",
+        chatId: "632cef078c294913b5b4653869eca845",
+        folder: "",
+        images: false,
+        username: "mn0uvp2fhv",
+        persona_name: "",
+        id: "46db0561-cb3e-43d9-8f50-40b3e3c84713",
+        userQuery: prompt,
+    });
 
-            return json.contentUrl;
-        } catch (error) {
-            throw { msg: error.message };
-        }
+    try {
+        const response = await fetch(url, { method: "POST", headers, body });
+        const data = await response.json();
+        return data.response;
+    } catch (error) {
+        console.error("Error:", error);
+        return "Maaf, ada kesalahan dalam mengambil respons.";
     }
 }
 
-const snackVideo = new SnackVideo();
-
-let handler = async (m, { conn, args }) => {
-    if (!args[0]) return m.reply("Mana link videonya?");
-
+async function translateToIndonesian(text) {
     try {
-        let videoUrl = await snackVideo.download(args[0]);
-        conn.sendMessage(m.chat, { 
-            video: { url: videoUrl }
-        });
+        const result = await translate(text, null, "id");
+        return result.translation;
     } catch (error) {
-        m.reply(error.msg);
+        console.error("Error saat menerjemahkan:", error);
+        return text;
     }
+}
+
+let handler = async (m, { conn, text }) => {
+    if (!text) return m.reply("Masukkan pertanyaan untuk AI!");
+    let aiResponse = await DoppleAi(text);
+    let translatedResponse = await translateToIndonesian(aiResponse);
+
+    let message = {
+        image: { url: "https://img5.pixhost.to/images/2852/566434342_senjudzz.jpg" },
+        caption: translatedResponse,
+        quoted: m
+    };
+
+    conn.sendMessage(m.chat, message);
 };
 
-handler.help = ["snack"];
-handler.command = ["snack"];
-handler.tags = ['downloader']
+handler.help = ['dopple'];
+handler.tags = ['ai']
+handler.command = ['dopple'];
+handler.limit = false;
 
 export default handler;
