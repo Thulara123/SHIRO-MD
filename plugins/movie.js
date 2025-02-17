@@ -48,7 +48,6 @@ cmd({
         const fileId = selectedDownload.link.split('/').pop();
         const directDownloadLink = `https://pixeldrain.com/api/file/${fileId}?download`;
         
-        
         // Download movie
         const filePath = path.join(__dirname, `${selectedMovie.title}-480p.mp4`);
         const writer = fs.createWriteStream(filePath);
@@ -62,11 +61,23 @@ cmd({
         data.pipe(writer);
 
         writer.on('finish', async () => {
+            // Construct the caption with additional details
+            const caption = `🎬 *${selectedMovie.title}*\n` +
+                            `📅 Release Date: ${selectedMovie.releaseDate}\n` +
+                            `⭐ Rating: ${selectedMovie.rating}\n` +
+                            `🌍 Country: ${selectedMovie.country}\n` +
+                            `⏱️ Duration: ${selectedMovie.duration}\n` +
+                            `📌 Quality: 480p\n` +
+                            `✅ *Download Complete!*\n` +
+                            `> *SHIRO-MD*`;
+
+            // Send the movie file with thumbnail
             await robin.sendMessage(from, {
                 document: fs.readFileSync(filePath),
                 mimetype: 'video/mp4',
                 fileName: `${selectedMovie.title}-480p-SHIRO-MD.mp4`,
-                caption: `🎬 *${selectedMovie.title}*\n📌Quality: 480p\n✅ *Download Complete!*\n> *SHIRO-MD*`,
+                caption: caption,
+                thumbnail: selectedMovie.thumbnail, // Assuming thumbnail URL is provided in the API response
                 quoted: mek 
             });
             fs.unlinkSync(filePath);
