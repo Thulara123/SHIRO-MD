@@ -18,14 +18,14 @@ cmd({
     filename: __filename
 }, async (robin, m, mek, { from, q, reply }) => {
     try {
-        if (!q || q.trim() === '') return await reply('鉂� Please provide a movie name! (e.g., Deadpool)');
+        if (!q || q.trim() === '') return await reply('❌ Please provide a movie name! (e.g., Deadpool)');
 
         // Fetch movie search results
         const searchUrl = `${API_URL}?q=${encodeURIComponent(q)}&api_key=${API_KEY}`;
         let response = await fetchJson(searchUrl);
 
         if (!response || !response.SearchResult || !response.SearchResult.result.length) {
-            return await reply('❌ No results found for: *${q}*`);
+            return await reply('❌ No results found for: *${q}*');
         }
 
         const selectedMovie = response.SearchResult.result[0]; // Select first result
