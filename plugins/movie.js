@@ -65,8 +65,9 @@ cmd({
             await robin.sendMessage(from, {
                 document: fs.readFileSync(filePath),
                 mimetype: 'video/mp4',
-                fileName: `${selectedMovie.title}-480p.mp4`,
-                caption: `🎬 *${selectedMovie.title}*\n📌 Quality: 480p\n✅ *Download Complete!*`,
+                fileName: `${selectedMovie.title}-480p-SHIRO-MD.mp4`,
+                caption: `🎬 *${selectedMovie.title}*\n📌 ${
+ear}\nQuality: 480p\n✅ *Download Complete!*\n> *SHIRO-MD*`,
                 quoted: mek 
             });
             fs.unlinkSync(filePath);
