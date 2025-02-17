@@ -1,76 +1,46 @@
 
  const axios = require('axios');
  const cheerio = require('cheerio');
+/*
+DARK SHADOW MODZ
 
- async function selectSurah(link){ 
- let { data }= await axios.get(link)
- const $ = cheerio.load(data)
- const Result = []
- const Isi = []
- var surah = $('body > main > article > h1').text()
- var bismillah = $('body > main > article > p').text()
- $('body > main > article > ol > li:nth-child(n)').each((i, e) => {
- const arabic = $(e).find('p.arabic').text()
- const baca = $(e).find('p.translate').text()
- const arti = $(e).find('p.meaning').text()
- Isi.push({
- arabic,
- baca,
- arti,
- });
- });
- Result.push({surah, bismillah}, Isi)
- return Result
- }
+`Follow Channel`
+https://whatsapp.com/channel/0029VaXRYlrKwqSMF7Tswi38
 
- async function listsurah(){
- let { data }= await axios.get('https://litequran.net/')
- const $ = cheerio.load(data)
- const Result = []
- $('body > main > ol > li:nth-child(n)').each((i, e) => {
- const name_surah = $(e).find('a').text()
- const link = 'https://litequran.net/' + $(e).find('a').attr('href')
- Result.push({
- link,
- name_surah,
- });
- });
- return Result
- }
+**/
 
- async function getSurah(surahIndex) {
- const surahList = await listsurah();
+const config = require('../config');
+const { cmd, commands } = require('../command');
+const { fetchJson } = require('../lib/functions');
 
- if (surahIndex < 1 || surahIndex > surahList.length) {
- return "🚫 *Nomor surah tidak valid.* Silakan masukkan nomor surah yang sesuai.";
- }
 
- const selectedSurah = surahList[surahIndex - 1];
- const surahContent = await selectSurah(selectedSurah.link);
+cmd({
+    pattern: "readmore",
+    desc: "Readmore message",
+    category: "convert",
+    react: "📝",
+    filename: __filename
+}, async (conn, mek, m, {
+    from, quoted, body, isCmd, command, args, q, isGroup, sender
+}) => {
+    try {
+        // Get the message text after the command (.readmore text)
+        let readmoreText = q ? q : "No text provided";
 
- let response = `🕌 *Surah ${surahContent[0].surah}*\n`;
- response += `📜 *Ayat yang penuh hikmah dan petunjuk bagi umat*:\n\n`;
+        // Create the "Readmore" effect by adding a special character to split the text
+        let readmore = "\u200B".repeat(4000); // This creates a large gap between text
 
- surahContent[1].forEach((ayah, index) => {
- response += `*𖦹 Ayat ${index + 1}:*\n`;
- response += `🕋 ${ayah.arabic}\n`;
- response += `📖 ${ayah.baca}\n`;
- response += `📚 ${ayah.arti}\n\n`;
- });
+        // Full message to send
+        let replyText = `... Readmore\n\n${readmore}${readmoreText}`;
 
- response += `\n🤲 *Semoga kita selalu diberkahi oleh Allah dengan petunjuk dari ayat-ayat ini.*\n`;
+        // Send the message with the "Readmore" functionality
+        await conn.sendMessage(from, { text: replyText }, { quoted: mek });
 
- return response;
- }
+        // React to the message
+        await conn.sendMessage(from, { react: { text: "", key: mek.key } });
 
- // Fungsi pengiriman pesan
- const surahIndex = parseInt(args[0]);
- if (isNaN(surahIndex)) {
- m.reply("🚫 *Masukkan nomor surah yang valid.*");
- } else {
- getSurah(surahIndex).then(response => {
- m.reply(response);
- }).catch(err => {
- m.reply("🚫 *Terjadi kesalahan saat mengambil data surah.*");
- });
- }
+    } catch (e) {
+        console.log(e);
+        reply(`Error: ${e.message}`);
+    }
+});
