@@ -9,5 +9,6 @@ SESSION_ID: process.env.SESSION_ID || "yIwX2TID#SydRr7-8fGT3cKenNMpn4sOhxaSULQCf
 ALIVE_IMG: process.env.ALIVE_IMG || "asset/SHIRO-MD.jpg",
 ALIVE_MSG: process.env.ALIVE_MSG || "*Hello,I am Live now...!* 👋",
 AUTO_READ_STATUS: process.env.AUTO_READ_STATUS || "true",
+MOVIE_API_KEY: process.env.MOVIE_API_KEY || "sky|75d014b745c09a7b745fdeb070bbbd203a822e9b",
 MODE: process.env.MODE || "public"
 };
