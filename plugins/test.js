@@ -1,14 +1,5 @@
-
- const axios = require('axios');
- const cheerio = require('cheerio');
-/*
-DARK SHADOW MODZ
-
-`Follow Channel`
-https://whatsapp.com/channel/0029VaXRYlrKwqSMF7Tswi38
-
-**/
-
+const axios = require('axios');
+const cheerio = require('cheerio');
 const config = require('../config');
 const { cmd, commands } = require('../command');
 const { fetchJson } = require('../lib/functions');
@@ -31,7 +22,7 @@ cmd({
         let readmore = "\u200B".repeat(4000); // This creates a large gap between text
 
         // Full message to send
-        let replyText = `... Readmore\n\n${readmore}${readmoreText}`;
+        let replyText = `Readmore\n\n${readmore}${readmoreText}\n\n> *SHIRO-MD*`;
 
         // Send the message with the "Readmore" functionality
         await conn.sendMessage(from, { text: replyText }, { quoted: mek });
