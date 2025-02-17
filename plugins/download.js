@@ -1,125 +1,26 @@
-const { generateWAMessageFromContent, proto, getContentType, delay, getDevice, getBinaryNodeChild, getBinaryNodeChildren } = require('@whiskeysockets/baileys')
-case 'add': case 'masukin': {
-    if (!text && !m.quoted) {
-        return m.reply(`Reply pengguna/masukkan nomor, contoh:\n${usedPrefix + command} +628xxx`);
-    }
+case 'listheroml': {
+    try {
+        let response = await fetch('https://api.vreden.my.id/api/search/listhero');
+        let data = await response.json();
 
-    let link = await sock.groupInviteCode(m.chat).catch(() => null);
-    if (!link) return m.reply("⚠️ Error: Tidak bisa mendapatkan kode undangan grup.");
-
-    let metadata = await sock.groupMetadata(m.chat).catch(() => null);
-    if (!metadata) return m.reply("⚠️ Error: Gagal mendapatkan informasi grup.");
-
-    let groupName = metadata.subject;
-    let existingParticipants = metadata.participants.map(user => user.id);
-    let inputNumbers = [];
-
-    if (m.quoted) {
-        inputNumbers.push(m.quoted.sender.split('@')[0]);
-    }
-
-    if (text) {
-        inputNumbers = inputNumbers.concat(
-            text.split(',')
-                .map(v => v.replace(/[^0-9]/g, ''))
-                .filter(v => v.length > 4 && v.length < 20)
-        );
-    }
-
-    inputNumbers = [...new Set(inputNumbers)];
-
-    for (const number of inputNumbers) {
-        const jid = `${number}@s.whatsapp.net`;
-
-        if (existingParticipants.includes(jid)) {
-            await m.reply(`⚠️ Pengguna @${number} sudah ada di grup.`);
-            continue;
+        if (data.status !== 200) {
+            throw new Error('Gagal mengambil data hero');
         }
 
-        const exists = await sock.onWhatsApp(jid);
-        if (!exists[0]?.exists) {
-            await m.reply(`⚠️ Pengguna @${number} tidak terdaftar di WhatsApp.`);
-            continue;
-        }
+        let heroes = data.result;
+        let heroDetails = heroes.map(hero => {
+            return `**Hero Name:** ${hero.name}\n**Role:** ${hero.role}\n**Specialty:** ${hero.specialty}\n`;
+        }).join('\n\n');
 
-        try {
-            const response = await sock.query({
-                tag: 'iq',
-                attrs: {
-                    type: 'set',
-                    xmlns: 'w:g2',
-                    to: m.chat,
-                },
-                content: [{
-                    tag: 'add',
-                    attrs: {},
-                    content: [{
-                        tag: 'participant',
-                        attrs: { jid },
-                    }],
-                }],
-            });
+        let imageUrl = 'https://static.wikia.nocookie.net/mobile-legends/images/1/11/Hero351-icon.png/revision/latest/scale-to-width-down/100?cb=20241021145405';
+        let caption = `\`I N F O R M A T I O N\`\n\nPilih hero untuk melihat detailnya!\n\n${heroDetails}`;
 
-            const participant = getBinaryNodeChildren(response, 'add');
-            const user = participant[0]?.content.find(item => item.attrs.jid === jid);
-
-            if (user?.attrs.error === '421') {
-                m.reply("⚠️ Tidak dapat menambahkan pengguna tersebut. Mereka telah membatasi undangan ke grup.");
-                continue;
-            }
-
-            if (user?.attrs.error === '408') {
-                await m.reply(`✅ Undangan grup berhasil dikirim ke @${number} karena pengguna baru saja keluar dari grup.`);
-                await sock.sendMessage(
-                    jid, {
-                        text: `✨ Anda diundang kembali ke grup ini:\nhttps://chat.whatsapp.com/${link}`,
-                        contextInfo: {
-                            externalAdReply: {
-                                title: groupName,
-                                body: null,
-                                thumbnailUrl: await sock.profilePictureUrl(m.chat, 'image').catch(() => null),
-                                sourceUrl: `https://chat.whatsapp.com/${link}`,
-                                mediaType: 1,
-                                renderLargerThumbnail: false,
-                            },
-                        },
-                    }, { quoted: null }
-                );
-                continue;
-            }
-
-            if (user?.attrs.error === '403') {
-                await m.reply(`Mengirim tautan ke @${number}.`);
-                const content = getBinaryNodeChild(user, 'add_request');
-                const { code, expiration } = content.attrs;
-                const pp = await sock.profilePictureUrl(m.chat, 'image').catch(() => null);
-                const jpegThumbnail = pp ? await fetch(pp).then(res => res.buffer()) : Buffer.alloc(0);
-
-                const msgs = generateWAMessageFromContent(
-                    m.chat,
-                    proto.Message.fromObject({
-                        groupInviteMessage: {
-                            groupJid: m.chat,
-                            inviteCode: code,
-                            inviteExpiration: parseInt(expiration),
-                            groupName: groupName,
-                            jpegThumbnail: jpegThumbnail,
-                            caption: "Undangan untuk bersetubuhan badan.",
-                        },
-                    }), {
-                        userJid: sock.user.id,
-                    }
-                );
-
-                await sock.sendMessage(jid, {
-                    forward: msgs,
-                    mentions: [jid]
-                });
-            }
-        } catch (err) {
-            console.error(err);
-            await m.reply(`Error saat menambahkan @${number}: ${err.message}`);
-        }
+        let buffer = await getBuffer(imageUrl);
+        await pulsar.sendMessage(m.chat, { text: caption }, { quoted: m });
+        await sock.sendImage(m.chat, buffer, 'Daftar Hero Mobile Legends', { quoted: m });
+    } catch (error) {
+        console.error('Error dalam listheroml:', error);
+        await sock.sendMessage(m.chat, { text: 'Maaf, terjadi kesalahan saat mengambil data hero.' }, { quoted: m });
     }
+    break;
 }
-break;
