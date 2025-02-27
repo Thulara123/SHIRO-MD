@@ -34,10 +34,14 @@ let dec = `👋 HEY ${pushname} THIS IS MY MENU 📍
 ┊ .runtime
 ┊ .about
 ┊ .restart
-┊ .boom
+
+╭════════════⊷❍ 
+┊ 2 || OTHERS
+┊＿＿＿＿＿＿＿＿＿＿＿
 ┊ .movie
-┊ .hiru
 ┊ .readmore
+┊ .hiru
+┊ .boom
 
 I AM SHIRO-MD V1 WHATSAPP USER BOT 🧑‍💻
 
