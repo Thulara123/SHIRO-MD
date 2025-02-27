@@ -10,7 +10,7 @@ const DOWNLOAD_URL = "https://api.skymansion.site/movies-dl/download";
 const API_KEY = config.MOVIE_API_KEY;
 
 cmd({
-    pattern: "movie",
+    pattern: "movie1",
     alias: ["moviedl", "films"],
     react: '🎬',
     category: "download",
