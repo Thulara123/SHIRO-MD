@@ -39,7 +39,6 @@ let dec = `👋 HEY ${pushname} THIS IS MY MENU 📍
 ┊ 2 || OTHERS
 ┊＿＿＿＿＿＿＿＿＿＿＿
 ┊ .movie
-┊ .readmore
 ┊ .hiru
 ┊ .boom
 
