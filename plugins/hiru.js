@@ -3,7 +3,7 @@ const { cmd } = require('../command');
 const { fetchJson } = require('../lib/functions');
 
 cmd({
-    pattern: "hiru",
+    pattern: "hirucheck",
     alias: ["hirunews","newshiru","hirulk"],
     react: "⭐",
     category: "search hiru news",
@@ -17,7 +17,7 @@ cmd({
         participants, groupAdmins, isBotAdmins, isAdmins, reply
     }) => {
         try {
-            const apiUrl = `https://deneth-dev-api-links.vercel.app/api/sirasa?&api_key=deneth-md`;
+            const apiUrl = `https://suhas-bro-apii.vercel.app/hiru`;
 //Dont Change This API Key
             const response = await axios.get(apiUrl);
             const data = response.data;
@@ -28,11 +28,11 @@ cmd({
 
             const { newsURL, title, image, text, Power } = data;
 
-            let newsInfo = " 🅂🄷🄸🅁🄾-🄼🄳 🄷🄸🅁🅄 🄽🄴🅆 🅄🄿🄳🄰🅃🄴📰\n\n";
+            let newsInfo = "🅂🄷🄸🅁🄾-🄼🄳 𝐇𝐢𝐫𝐮 𝐍𝐞𝐰𝐬 𝐔𝐩𝐝𝐚𝐭𝐞 📰\n\n";
             newsInfo += `✨ *Title*: ${title}\n\n`;
             newsInfo += `📑 *Description*:\n${text}\n\n`;
             newsInfo += `⛓️‍💥 *Url*: www.hirunews.lk\n\n`;
-            newsInfo += `> *© 𝙿𝚘𝚠𝚎𝚛𝚎𝚍 𝙱𝚢 SHIRO-〽️𝙳*\n\n*By SHIRO-MD*`;
+            newsInfo += `> *© 𝙿𝚘𝚠𝚎𝚛𝚎𝚍 𝙱𝚢 SHIRO-〽️𝙳*\n\n*by SHIRO-MD*`;
 
             if (image) {
                 await conn.sendMessage(m.chat, {
