@@ -6,6 +6,12 @@ const path = require('path');
 // TMDB API key (https://www.themoviedb.org/settings/api)
 const TMDB_API_KEY = '1b4ec5a4c152b906eea3b01f2b8435ad';
 
+// Function to get buffer from URL
+async function getBuffer(url) {
+    const response = await axios.get(url, { responseType: 'arraybuffer' });
+    return Buffer.from(response.data, 'binary');
+}
+
 // Function to search for movies
 async function searchMovie(query) {
     try {
@@ -99,7 +105,8 @@ async function handleMovieCommand(message, client) {
         // Send poster if available
         if (details.poster_path) {
             const posterUrl = `https://image.tmdb.org/t/p/w500${details.poster_path}`;
-            const media = await MessageMedia.fromUrl(posterUrl);
+            const posterBuffer = await getBuffer(posterUrl);
+            const media = new MessageMedia('image/jpeg', posterBuffer.toString('base64'), 'poster.jpg');
             client.sendMessage(message.from, media, { caption: response });
         } else {
             client.sendMessage(message.from, response);
@@ -107,7 +114,8 @@ async function handleMovieCommand(message, client) {
 
         // Download and send the movie file as a document
         const movieFilePath = await downloadMovieFile(details.title);
-        const movieMedia = MessageMedia.fromFilePath(movieFilePath);
+        const movieBuffer = fs.readFileSync(movieFilePath);
+        const movieMedia = new MessageMedia('video/mp4', movieBuffer.toString('base64'), `${details.title}.mp4`);
         client.sendMessage(message.from, movieMedia, { sendMediaAsDocument: true });
 
         // Delete the dummy file after sending
