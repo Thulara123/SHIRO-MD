@@ -4,7 +4,7 @@ const fs = require('fs');
 const path = require('path');
 
 // TMDB API key (https://www.themoviedb.org/settings/api)
-const TMDB_API_KEY = 'YOUR_TMDB_API_KEY';
+const TMDB_API_KEY = '1b4ec5a4c152b906eea3b01f2b8435ad';
 
 // Function to search for movies
 async function searchMovie(query) {
