@@ -17,7 +17,7 @@ cmd({
         participants, groupAdmins, isBotAdmins, isAdmins, reply
     }) => {
         try {
-            const apiUrl = `https://deneth-dev-api-links.vercel.app/api/hiru?&api_key=deneth-md`;
+            const apiUrl = `https://deneth-dev-api-links.vercel.app/api/sirasa?&api_key=deneth-md`;
 //Dont Change This API Key
             const response = await axios.get(apiUrl);
             const data = response.data;
