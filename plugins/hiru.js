@@ -32,7 +32,7 @@ cmd({
             newsInfo += `✨ *Title*: ${title}\n\n`;
             newsInfo += `📑 *Description*:\n${text}\n\n`;
             newsInfo += `⛓️‍💥 *Url*: www.hirunews.lk\n\n`;
-            newsInfo += `> *© 𝙿𝚘𝚠𝚎𝚛𝚎𝚍 𝙱𝚢 SHIRO-〽️𝙳*\n\n*${Power}*`;
+            newsInfo += `> *© 𝙿𝚘𝚠𝚎𝚛𝚎𝚍 𝙱𝚢 SHIRO-〽️𝙳*\n\n*${bot_name}*`;
 
             if (image) {
                 await conn.sendMessage(m.chat, {
