@@ -36,7 +36,13 @@ let dec = `👋 HEY ${pushname} THIS IS MY MENU 📍
 ┊ .restart
 
 ╭════════════⊷❍ 
-┊ 2 || OTHERS
+┊ 2 || DOWNLOADS
+┊＿＿＿＿＿＿＿＿＿＿＿
+┊ .song
+
+
+╭════════════⊷❍ 
+┊ 3 || OTHERS
 ┊＿＿＿＿＿＿＿＿＿＿＿
 ┊ .movie
 ┊ .hiru
