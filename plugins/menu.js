@@ -49,6 +49,7 @@ let dec = `👋 HEY ${pushname} THIS IS MY MENU 📍
 ┊ .fact
 ┊ .repo
 ┊ .hack
+┊ .trt
 
 I AM SHIRO-MD V1 WHATSAPP USER BOT 🧑‍💻
 
