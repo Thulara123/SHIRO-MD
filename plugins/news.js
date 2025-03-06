@@ -1,17 +1,12 @@
-// Plugin Created By Suhas Bro.😌✊
-// Do not Change API Key.🔓
-// Don't Sell This Plugin.❤‍🩹
-
 const axios = require('axios');
-const { cmd } = require('../command');
+const { cmd } = require('../command'); // Adjust this based on your bot's command handler
 
 // SUHAS-MD News Plugin Command
-
 cmd({
     pattern: 'itnnews',
     desc: 'Get the latest ITN news.',
     category: 'News',
-    use: '.news',
+    use: '.itnnews',
     react: '📰',
     filename: __filename
 }, async (conn, mek, m, { reply }) => {
@@ -20,19 +15,20 @@ cmd({
         const res = await axios.get('https://suhas-bro-api.vercel.app/news/itn');
         const newsData = res.data;
 
+        // Check if the API returned valid data
         if (!newsData || newsData.length === 0) {
             return reply("❌ No news available at the moment.");
         }
 
-        // Assuming we want to show the first news item
-        const article = newsData[0]; // Get the first news article
+        // Get the first news article
+        const article = newsData[0];
 
         // Create a formatted response with the latest news
-        let newsReply = `📰 Latest ITN News:\n\n`;
-        newsReply += `📅 Date: ${article.date}\n`;
-        newsReply += `📝 Title: ${article.title}\n`;
-        newsReply += `📝 Summary: ${article.summary}\n`;
-        newsReply += `🔗 Link: ${article.link}\n`;
+        let newsReply = `📰 *Latest ITN News*:\n\n`;
+        newsReply += `📅 *Date*: ${article.date}\n`;
+        newsReply += `📝 *Title*: ${article.title}\n`;
+        newsReply += `📝 *Summary*: ${article.summary}\n`;
+        newsReply += `🔗 *Link*: ${article.link}\n`;
 
         // Send the formatted news response to the user
         reply(newsReply);
