@@ -3,7 +3,7 @@
 //Don't Sell This Plugin.❤‍🩹
 
 const axios = require('axios');
-const { cmd } = require('./command');  
+const { cmd } = require('../command');  
 
 // SUHAS-MD News Plugin Command
 
