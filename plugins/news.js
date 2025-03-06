@@ -1,5 +1,11 @@
+//Plugin Created By Suhas Bro.😌✊
+//Do not Chanege API Key.🔓
+//Don't Sell This Plugin.❤‍🩹
+
 const axios = require('axios');
 const { cmd } = require('./command');  
+
+// SUHAS-MD News Plugin Command
 
 cmd({
     pattern: 'itnnews',
@@ -18,20 +24,21 @@ cmd({
             return reply("❌ No news available at the moment.");
         }
 
-        
-        const article = newsData[0];
+        // Assuming we want to show the first news item
+        const article = newsData[0]; // Get the first news article
 
+        // Create a formatted response with the latest news
         let newsReply = `📰 Latest ITN News:\n\n`;
         newsReply += `📅 Date: article.date`;
         newsReply += `📝 Title:{article.title}\n`;
         newsReply += `📝 Summary: ${article.summary}\n`;
 newsReply += `🔗 Link:{article.link}\n`;
 
-        
+        // Send the formatted news response to the user
         reply(newsReply);
 
     } catch (error) {
         console.error("Error fetching news:", error.message);
         reply("❌ An error occurred while fetching the latest news.");
     }
-    });
+});
