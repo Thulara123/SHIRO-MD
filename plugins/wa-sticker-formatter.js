@@ -1,5 +1,5 @@
 const { Sticker, StickerTypes } = require('wa-sticker-formatter'); // StickerTypes import කිරීම
-const { cmd } = require('./commands'); // cmd function එක import කිරීම
+const { cmd } = require('../commands'); // cmd function එක import කිරීම
 
 const botConfig = {
   pattern: "save",
