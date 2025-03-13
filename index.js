@@ -95,23 +95,8 @@ if (mek.key && mek.key.remoteJid === 'status@broadcast' && config.AUTO_STATUS_RE
         key: mek.key,
       } 
     }, { statusJidList: [mek.key.participant, jawadlike] });
-  }                       
-
-//  *add in index or main .js anywhere ✅* 
-
-    conn.decodeJid = jid => {
-      if (!jid) return jid;
-      if (/:\d+@/gi.test(jid)) {
-        let decode = jidDecode(jid) || {};
-        return (
-          (decode.user &&
-            decode.server &&
-            decode.user + '@' + decode.server) ||
-          jid
-        );
-      } else return jid;
-    };
-
+  }     
+      
 const m = sms(conn, mek)
 const type = getContentType(mek.message)
 const content = JSON.stringify(mek.message)
